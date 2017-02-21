@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+	  <header>
+	  	<nav class="be-red white">
+	  		<ul class="row center-xs midle-xs no-liststyletype">
+	  			<li class="col-md">
+	  				<h1 class="no-margin">Blog rails</h1>
+	  			</li>
+	  			<li class="col-md">
+	  				<%= link_to "Inicio", root_path %>
+	  			</li>
+	  			<li class="col-md">
+	  				diseño
+	  			</li>
+	  			<li class="col-md">
+	  				programacion
+	  			</li>
+	  			<li class="col-md">
+	  				tecnología
+	  			</li>
+	  		</ul>
+	  	</nav>
+	  </header>
+    <%= yield %>
+  </body>
+</html>
