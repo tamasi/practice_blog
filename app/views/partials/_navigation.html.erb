@@ -1,0 +1,33 @@
+<header>
+	<nav class="be-red white">
+		<ul class="row center-xs midle-xs no-liststyletype">
+			<li class="col-md">
+				<h1 class="no-margin">Blog rails</h1>
+			</li>
+			<li class="col-md">
+				<%= link_to "Inicio", root_path %>
+			</li>
+			<li class="col-md">
+				diseño
+			</li>
+			<li class="col-md">
+				programacion
+			</li>
+			<li class="col-md">
+				tecnología
+			</li>
+			<% if user_signed_in? %>
+				<li class="col-md">
+					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+				</li>
+			<%else%>
+				<li class="col-md">
+					<%= link_to "Iniciar Sesión", new_user_session_path %>
+				</li>
+				<li class="col-md">
+					<%= link_to "Crear Cuenta", new_user_registration_path %>
+				</li>
+			<% end %>
+		</ul>
+	</nav>
+</header>
