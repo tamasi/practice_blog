@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
 	before_filter :find_model
+	before_action :authenticate_user!, except: [:show,:index]
+	before_action :set_article, except: [:index,:new,:create]
+
 	#GET /articles
 	def index 
 		@articles = Article.all
@@ -7,7 +10,7 @@ class ArticlesController < ApplicationController
 	
 	#GET /articles/:id
 	def show
-		@article = Article.find(params[:id])
+		@article.update_visits_count
 	end
 
 	#GET /articles/new
@@ -17,7 +20,7 @@ class ArticlesController < ApplicationController
 
 	#POST /articles
 	def create
-		@article = Article.new(article_params)
+		@article = current_user.articles.new(article_params)
 		if @article.save
 			redirect_to @article
 		else
@@ -27,7 +30,6 @@ class ArticlesController < ApplicationController
 
 	#PUT /articles/update
 	def update
-		@article = Article.find(params[:id])
 		if @article.update(article_params)
 			redirect_to @article
 		else
@@ -35,11 +37,11 @@ class ArticlesController < ApplicationController
 		end
 	end
 	def edit
-		@article = Article.find(params[:id])
+		
 	end
 
 	def destroy
-		@article = Article.find(params[:id])
+		
 		@article.destroy
 		redirect_to articles_path
 	end
@@ -51,5 +53,9 @@ class ArticlesController < ApplicationController
 
 	def article_params
 		params.require(:article).permit(:title,:body)
+	end
+
+	def set_article
+		@article = Article.find(params[:id])
 	end
 end
