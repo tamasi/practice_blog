@@ -7,12 +7,11 @@ class ArticlesController < ApplicationController
 	def index 
 		@articles = Article.all
 	end
-	
 	#GET /articles/:id
 	def show
 		@article.update_visits_count
+		@comment = Comment.new
 	end
-
 	#GET /articles/new
 	def new
 		@article = Article.new
@@ -41,7 +40,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def destroy
-		
 		@article.destroy
 		redirect_to articles_path
 	end
