@@ -17,7 +17,7 @@
 		<label for="">Categorias</label> 
 		<% @categories.each do |category| %>
 			<div class="field">
-				<%= check_box_tag "categories[]" category.id %> <%= category.name %>
+				<%= check_box_tag "categories[]", category.id %> <%= category.name %>
 			</div>
 		<% end -%>
 	</div>
