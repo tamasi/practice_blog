@@ -3,11 +3,11 @@ class ArticlesController < ApplicationController
 	before_action :authenticate_user!, except: [:show,:index]
 	before_action :set_article, except: [:index,:new,:create]
 	before_action :authenticate_editor!, only: [:new,:create,:update]
-	before_action :authenticate_admin!, only:[:new, :create,:update,:destroy]
+	before_action :authenticate_admin!, only:[:new, :create,:update,:destroy,:publish]
 
 	#GET /articles
 	def index 
-		@articles = Article.all
+		@articles = Article.paginate(page: params[:page],per_page:5).publicados.ultimos
 	end
 	#GET /articles/:id
 	def show
@@ -46,6 +46,11 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article.destroy
 		redirect_to articles_path
+	end
+
+	def publish
+		@article.publish!
+		redirect_to @article
 	end
 
 	private

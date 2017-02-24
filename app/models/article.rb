@@ -16,6 +16,9 @@ class Article < ApplicationRecord
 	#validación para que solo se permitan los archivos que nosotros queremos - la expresión regular es para permitir todo tipo de archivos de imagenes
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
+	scope :publicados, ->{ where(state: "published") }
+	scope :ultimos, ->{ order("created_at DESC") }
+
 	#custom setter. Nos permite asignar valor a un atributo de un objeto
 	def categories=(value)
 		@categories = value
