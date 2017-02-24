@@ -2,25 +2,22 @@
 	<nav class="be-red white">
 		<ul class="row center-xs midle-xs no-liststyletype">
 			<li class="col-md">
-				<h1 class="no-margin">Blog rails</h1>
+				<%= link_to "Blog Historia", root_path %>
 			</li>
-			<li class="col-md">
-				<%= link_to "Inicio", root_path %>
+			<li>
+				<%= link_to "Atricles", articles_path %>
 			</li>
-			<li class="col-md">
-				diseño
-			</li>
-			<li class="col-md">
-				programacion
-			</li>
-			<li class="col-md">
-				tecnología
-			</li>
+			<% @categories.each do |category| %>
+				<li class="col-md">
+					<%= link_to category.name, category %>
+				</li>
+			<% end %>
+			
 			<% if user_signed_in? %>
 				<li class="col-md">
 					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
 				</li>
-			<%else%>
+			<% else %>
 				<li class="col-md">
 					<%= link_to "Iniciar Sesión", new_user_session_path %>
 				</li>
