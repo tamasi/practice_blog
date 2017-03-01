@@ -11,7 +11,7 @@
 		Portada: <%= f.file_field :cover %>
 	</div>
 	<div class="field">
-		<%= f.text_area :body, placeholder: "Escribe aqui el artículo", class:"form-control", style:"height:250px;" %>
+		<%= f.text_area :body, class:"form-control", style:"height:250px;" %>
 	</div>
 	<div class="field">
 		<label for="">Categorias</label> 
@@ -25,3 +25,4 @@
 		<%= f.submit "Guardar" %>
 	</div>
 <% end %>
+<script> $(function() { $('textarea').froalaEditor() }); </script>

@@ -1,30 +1,44 @@
-<header>
-	<nav class="be-red white">
-		<ul class="row center-xs midle-xs no-liststyletype">
-			<li class="col-md">
-				<%= link_to "Blog Historia", root_path %>
-			</li>
-			<li>
-				<%= link_to "Atricles", articles_path %>
-			</li>
-			<% @categories.each do |category| %>
-				<li class="col-md">
-					<%= link_to category.name, category %>
-				</li>
-			<% end %>
-			
-			<% if user_signed_in? %>
-				<li class="col-md">
-					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <%= link_to "Historia y Derecho", root_path, class: "navbar-brand" %>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <ul class="navbar-nav mr-auto">
+
+	    <li class="nav-item active">
+	      <%= link_to "Atricles", articles_path, class:"nav-link" %>
+	    </li>
+	    <li class="nav-item dropdown">
+	    	<a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			    <% @categories.each do |category| %>
+				      <%= link_to category.name, category, class:"dropdown-item" %>
+			    <% end -%>
+		    </div>
+	    </li>
+	    <li class="nav-item">
+	    	<a class="nav-link" href="movies/new">New Movie <span class="sr-only">(current)</span></a>
+	    </li>
+	    <% if user_signed_in? %>
+				<li class="nav-item">
+					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"nav-link" %>
 				</li>
 			<% else %>
-				<li class="col-md">
-					<%= link_to "Iniciar Sesión", new_user_session_path %>
+				<li class="nav-item">
+					<%= link_to "Iniciar Sesión", new_user_session_path, class:"nav-link" %>
 				</li>
-				<li class="col-md">
-					<%= link_to "Crear Cuenta", new_user_registration_path %>
+				<li class="nav-item">
+					<%= link_to "Crear Cuenta", new_user_registration_path, class:"nav-link" %>
 				</li>
-			<% end %>
-		</ul>
-	</nav>
-</header>
+		<% end %>
+	  </ul>
+	  <form class="form-inline pull-xs-right">
+	    <input class="form-control" type="text" placeholder="Search">
+	    <button class="btn btn-success-outline" type="submit">Search</button>
+	  </form>
+  </div>
+</nav>

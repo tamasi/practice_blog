@@ -30,10 +30,19 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Gems installed for the blof tutorial
 gem 'devise'
 gem 'paperclip'
 gem 'aasm'
 gem 'will_paginate'
+gem 'sanitize'
+
+# Gem installes by me instead of the proposed ones
+gem "wysiwyg-rails"
+gem 'font-awesome-sass'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

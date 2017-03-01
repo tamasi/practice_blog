@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require froala_editor.min.js
+//= require plugins/font_size.min.js
+//= require plugins/paragraph_format.min.js
+//= require plugins/paragraph_style.min.js
+//= require bootstrap
 //= require_tree .
+
+$('selector').froalaEditor();
