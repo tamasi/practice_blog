@@ -42,6 +42,7 @@ gem 'sanitize'
 gem "wysiwyg-rails"
 gem 'font-awesome-sass'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'tether-rails'
 
 
 group :development, :test do

@@ -17,6 +17,7 @@
 //= require plugins/font_size.min.js
 //= require plugins/paragraph_format.min.js
 //= require plugins/paragraph_style.min.js
+//= require tether
 //= require bootstrap
 //= require_tree .
 
