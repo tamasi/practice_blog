@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require fastclick.min.js
+//= require modernizr.custom.32229-2.8-respondjs-1-4-2.js
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -19,6 +21,9 @@
 //= require plugins/paragraph_style.min.js
 //= require tether
 //= require bootstrap
-//= require_tree .
+//= require jquery.jpanelmenu.min.js
+//= require comments
+//= require main.js
+
 
 $('selector').froalaEditor();
