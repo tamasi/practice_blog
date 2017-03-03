@@ -29,44 +29,13 @@
       </noscript>
       <main class="container left-container">
         <div class="row">
-          <div id="menu-target">
-            <ul>
-              <li><i class="fa fa-home"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/index.html">Home</a></li>
-              <li><i class="fa fa-user"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/author.html">John Smith</a></li>
-              <li><i class="fa fa-anchor"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/page.html">About</a></li>
-              <li><i class="fa fa-star"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/favorites.html">Favorites</a></li>
-              <li><i class="fa fa-paper-plane"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/contact.html">Contact</a></li>
-            </ul>
-            <hr>
-            <ul>
-              <li><i class="fa fa-file"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/post.html">Post Page</a></li>
-              <li><i class="fa fa-file"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/post-sidebar.html">Post with Sidebar</a></li>
-
-              <li><i class="fa fa-home"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/alt-home.html">Alternate Home</a></li>
-              <li><i class="fa fa-image"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/category.html">Category Page</a></li>
-            </ul>
-          </div>
-        </div>
-        <section class="sidebar col-md-5 col-sm-12" style="background-image:url(assets/default-sidebar.jpg); left: 0px;">
-          <span class="menu-trigger animated fadeInDown">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
-          </span>
-          <div class="site-info">
-            <div class="primary-info">
-                <h1>Writer</h1>
-                <p>A minimal blogging theme to put your content on show. <a href="http://adventurethemes.com/demo/writer/html/v2-1/post.html">Look at the features.</a> </p>
-
-                <p>Content is king</p>
-            </div>
-            <div class="secondary-info">
-                <p>
-                    <a class="btn btn-primary" href="http://adventurethemes.com/demo/writer/html/v2-1/index.html#"><i class="fa fa-user-plus"></i>Join Our Newsletter</a>
-                </p>
-            </div>
-          </div>
-        </section><!--end sidebar-->
+          <%= render "partials/sidebarnav" %>
+          
+          <section class="col-md-7 col-sm-12 col-md-offset-5 main-content">
+            <p>prueba a ver donde lo pone</p>
+            
+          </section>
+        </div><!-- row -->
       </main>
     </div>
     <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">

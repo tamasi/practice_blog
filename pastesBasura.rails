@@ -1,0 +1,14 @@
+<%= render "partials/navigation" %>
+    <div class="container">
+        <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "alert alert-info") %>
+        <% end %>
+        <%= yield %>
+    </div>
+
+
+
+    //= require_tree .
+
+
+    //= require main.js
