@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1 style="color:<%= @category.color %>;"> <%= @category.name %> </h1>
+<div class="field">
+	<%= image_tag @category.cover.url(:thumb) %>
+</div>
 <h2>Articulos</h2>
 <% @category.articles.each do |article| %>
 	<h3><%= link_to article.title, article %></h3>

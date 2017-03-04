@@ -19,8 +19,7 @@
 //= require plugins/font_size.min.js
 //= require plugins/paragraph_format.min.js
 //= require plugins/paragraph_style.min.js
-//= require tether
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require jquery.jpanelmenu.min.js
 //= require comments
 //= require main.js

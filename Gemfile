@@ -41,9 +41,11 @@ gem 'sanitize'
 # Gem installes by me instead of the proposed ones
 gem "wysiwyg-rails"
 gem 'font-awesome-sass'
-gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'tether-rails'
 
+#gem 'bootstrap', '~> 4.0.0.alpha6'
+#gem 'tether-rails'
+# adding bootstrap 3 for rails
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

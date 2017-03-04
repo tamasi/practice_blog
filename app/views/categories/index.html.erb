@@ -1,3 +1,16 @@
+<div class="home-page-categories animated fadeIn ">
+  <div class="category row">
+    <section>
+      <% @categories.each do |category| %>
+        <div class="category-preview col-xs-6 col-sm-4 ">
+            <h2><%= category.name %></h2>
+            <%= link_to image_tag(category.cover.url), category %>
+        </div>
+      <% end -%>
+    </section>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>

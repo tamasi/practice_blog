@@ -32,15 +32,18 @@
           <%= render "partials/sidebarnav" %>
           
           <section class="col-md-7 col-sm-12 col-md-offset-5 main-content">
-            <p>prueba a ver donde lo pone</p>
-            
+            <div class="sub-nav">
+              <%= link_to "Artículos", articles_path, class:"select-posts active" %>
+              <%= link_to "Categorias", categories_path, class:"select-categories" %>
+            </div>
+            <%= yield %>
           </section>
         </div><!-- row -->
       </main>
     </div>
     <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
       <ul>
-          <li><i class="fa fa-home"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/index.html">Home</a></li>
+          <li><i class="fa fa-home"></i><%= link_to "Home", root_path %></li>
           <li><i class="fa fa-user"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/author.html">John Smith</a></li>
           <li><i class="fa fa-anchor"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/page.html">About</a></li>
           <li><i class="fa fa-star"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/favorites.html">Favorites</a></li>
