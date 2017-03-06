@@ -30,13 +30,20 @@
       <main class="container left-container">
         <div class="row">
           <%= render "partials/sidebarnav" %>
-          
+          <%= render "partials/sectionHome" %>
           <section class="col-md-7 col-sm-12 col-md-offset-5 main-content">
             <div class="sub-nav">
-              <%= link_to "Artículos", articles_path, class:"select-posts active" %>
-              <%= link_to "Categorias", categories_path, class:"select-categories" %>
+              <%= link_to "Artículos", articles_path, class:"select-posts", id: "art", remote: true %>
+              <%= link_to "Categorias", categories_path, class:"select-categories", id:"carga", remote: true %>
             </div>
-            <%= yield %>
+            <div id="remove">
+              <%= yield %>
+            </div>
+            <footer class="split-footer">
+              <a href="http://adventurethemes.com/demo/writer/html/v2-1/post.html">About</a>
+              <i class="link-spacer"></i>
+              <a href="http://adventurethemes.com/demo/writer/html/v2-1/post.html">Writer 2015</a>
+            </footer>
           </section>
         </div><!-- row -->
       </main>
@@ -61,6 +68,32 @@
         <!-- end no script -->
 
     <style id="jPanelMenu-style-master">body{width:100%}.jPanelMenu,body{overflow-x:hidden}#jPanelMenu-menu{display:block;position:fixed;top:0;left:0;height:100%;z-index:-1;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch}.jPanelMenu-panel{position:static;left:0;top:0;z-index:2;width:100%;min-height:100%;background:rgb(255, 255, 255)}</style>
+
+    <script>
+      $(function(){
+        $('#carga').click(function(){
+          $.ajax({
+              url: "/categories",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+
+      $(function(){
+        $('#art').click(function(){
+          $.ajax({
+              url: "/articles",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+    </script>
 
   </body>
 </html>

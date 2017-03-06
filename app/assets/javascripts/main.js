@@ -16,15 +16,15 @@ var s,
         bindUiActions: function (){
             // Should include all JS user interactions
             var self = this;
-
+            $('.select-posts, .select-categories').removeClass("active");
             $('.select-posts,.select-categories').on('click', function () {
-                self.homePostsCatSwitch();
+                self.showActiveLink();
             });
 
             $('.social-icon').on('click', function(){
                 self.socialIconClick( $(this) );
             });
-
+            
         },
         initalizers: function (){
             // Initalize any plugins for functions when page loads
@@ -38,13 +38,20 @@ var s,
             // Add Bg colour from JS so jPanel has time to initalize
             $('body').css({"background-color":"#333337"});
         },
-        homePostsCatSwitch: function(){
-            // Toggles between showing the categories and posts on the homepage
-            $('.home-page-posts').toggleClass("hide");
-            $('.home-page-categories').toggleClass("hide");
-            $('.select-posts').toggleClass("active");
-            $('.select-categories').toggleClass("active");
-            $('.home-footer').toggleClass("hide");
+        showActiveLink: function() {
+            $('.select-posts, .select-categories').removeClass("active");
+            var path = document.location.pathname;
+            console.log(path);
+            switch (path){
+                case '/articles':
+                    console.log('en articles');
+                    $('.select-posts').addClass("active");
+                    break;
+                case '/categories':
+                    console.log('en categories');
+                    $('.select-categories').addClass("active");
+                    break;
+            }
         },
         socialIconClick: function(el) {
             // Post page social Icons

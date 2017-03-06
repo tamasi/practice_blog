@@ -12,3 +12,27 @@
 
 
     //= require main.js
+
+
+    $('#cat').click(function(){
+              $('.select-posts, .select-categories').removeClass("active");
+              $.ajax({
+                  url: "/categories",
+                  cache: false,
+                  success: function(htmlResponse){
+                    $("#remove").html(htmlResponse);
+                    $('.select-categories').addClass("active");
+                  }
+              });
+            });
+            $('#art').click(function(){
+              $('.select-posts, .select-categories').removeClass("active");
+              $.ajax({
+                  url: "/articles",
+                  cache: false,
+                  success: function(htmlResponse){
+                    $("#remove").html(htmlResponse);
+                    $('.select-categories').addClass("active");
+                  }
+              });
+            });
