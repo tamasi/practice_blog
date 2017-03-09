@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  #resources :profiles
   resources :categories
-  devise_for :users
+  devise_for :users, :path => 'accounts'
+  
+  resources :users do
+    resources :profiles only: [:index]
+  end
+
   resources :articles do
   	resources :comments, only: [:create, :destroy, :update]
   end

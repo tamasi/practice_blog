@@ -7,7 +7,7 @@
 	        <p><%= truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:40) %></p>
 
 	        <p class="meta">
-	            <a href="http://adventurethemes.com/demo/writer/html/v2-1/author.html">James Reddy</a> in <%= link_to article.categories[0], article.categories[0] %><a href="http://adventurethemes.com/demo/writer/html/v2-1/category.html">Storytime</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 23 minute read
+	            <%= article.user.email %> in <%= article.categories.first ? article.categories.first.name : "Sin Categorias"  %> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 23 minute read
 	        </p>
 	    </div>
 

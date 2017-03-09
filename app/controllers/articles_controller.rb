@@ -2,8 +2,8 @@ class ArticlesController < ApplicationController
 	before_filter :find_model
 	before_action :authenticate_user!, except: [:show,:index]
 	before_action :set_article, except: [:index,:new,:create]
-	before_action :authenticate_editor!, only: [:new,:create,:update]
-	before_action :authenticate_admin!, only:[:new, :create,:update,:destroy,:publish]
+	before_action :authenticate_admin!, only:[:destroy, :publish]
+	before_action :authorization_for_editors_and_admins, only: [:new, :create, :update]
 
 	#GET /articles
 	def index 
