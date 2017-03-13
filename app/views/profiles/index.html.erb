@@ -16,18 +16,16 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.user %></td>
+        <td><%= profile.user.email %></td>
         <td><%= profile.first_name %></td>
         <td><%= profile.last_name %></td>
         <td><%= profile.about %></td>
-        <!-- <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_user_profile_path(profile) %></td> -->
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'show', profile %></td>
+        
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Profile', new_user_profile_path %>

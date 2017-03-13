@@ -2,7 +2,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= current_user.email %>
+  <%= @profile.user.email %>
 </p>
 
 <p>
@@ -19,6 +19,4 @@
   <strong>About:</strong>
   <%= @profile.about %>
 </p>
-
-<%= link_to 'Edit', edit_user_profile_path(@profile) %> |
 

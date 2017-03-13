@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  #resources :profiles
+  resources :institutions
   resources :categories
   devise_for :users, :path => 'accounts'
-  
-  resources :users do
-    resources :profiles only: [:index]
-  end
+  resources :profiles, only: [:index, :show]
+  # resources :users, only: [:index] do
+  #   resources :profiles, only: [:index, :show]
+  # end
 
   resources :articles do
   	resources :comments, only: [:create, :destroy, :update]
