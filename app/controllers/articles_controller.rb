@@ -66,4 +66,8 @@ class ArticlesController < ApplicationController
 	def set_article
 		@article = Article.find(params[:id])
 	end
+
+	def set_institutions
+		@institutions = Institution.all
+	end
 end

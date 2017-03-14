@@ -8,18 +8,26 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-    <%= f.fields_for :profile do |i| %>
+    <%= f.fields_for :profile do |p| %>
       <div class="field">
-        <%= i.label :name %><br />
-        <%= i.text_field :first_name %>
+        <%= p.label :name %><br />
+        <%= p.text_field :first_name %>
       </div>
       <div class="field"> 
-        <%= i.label :lastname %><br />
-        <%= i.text_field :last_name %>
+        <%= p.label :lastname %><br />
+        <%= p.text_field :last_name %>
       </div>
       <div class="field">
-        <%= i.label :about %>
-        <%= i.text_area :about %>
+        <%= p.label :about %>
+        <%= p.text_area :about %>
+      </div>
+      <div class="field">
+        <label for="">Instituciones</label> 
+        <% @institutions.each do |institution| %>
+          <div class="field">
+            <%= check_box_tag "institution[]", institution.id %> <%= institution.name %>
+          </div>
+        <% end -%>
       </div>
     <% end %>
 
