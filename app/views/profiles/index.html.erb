@@ -9,6 +9,7 @@
       <th>First name</th>
       <th>Last name</th>
       <th>About</th>
+      <th>Institution</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,9 @@
         <td><%= profile.first_name %></td>
         <td><%= profile.last_name %></td>
         <td><%= profile.about %></td>
+        <% unless profile.institutions[0].nil?%>
+          <td><%= profile.institutions[0].name %></td>
+        <% end -%>
         <td><%= link_to 'show', profile %></td>
         
         

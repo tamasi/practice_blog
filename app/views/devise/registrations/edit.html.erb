@@ -7,29 +7,35 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+  <div class="field">
+    <%= f.label :avatar, class: 'field'  %>
+    <div class="col-sm-6">
+      <%= f.file_field :avatar %>
+    </div>
+  </div>
 
-    <%= f.fields_for :profile do |p| %>
-      <div class="field">
-        <%= p.label :name %><br />
-        <%= p.text_field :first_name %>
-      </div>
-      <div class="field"> 
-        <%= p.label :lastname %><br />
-        <%= p.text_field :last_name %>
-      </div>
-      <div class="field">
-        <%= p.label :about %>
-        <%= p.text_area :about %>
-      </div>
-      <div class="field">
-        <label for="">Instituciones</label> 
-        <% @institutions.each do |institution| %>
-          <div class="field">
-            <%= check_box_tag "institution[]", institution.id %> <%= institution.name %>
-          </div>
-        <% end -%>
-      </div>
-    <% end %>
+  <%= f.fields_for :profile do |p| %>
+    <div class="field">
+      <%= p.label :name %><br />
+      <%= p.text_field :first_name %>
+    </div>
+    <div class="field"> 
+      <%= p.label :lastname %><br />
+      <%= p.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= p.label :about %>
+      <%= p.text_area :about %>
+    </div>
+    <div class="field">
+      <label for="">Instituciones</label> 
+      <% @institutions.each do |institution| %>
+        <div class="field">
+          <%= check_box_tag "institution[]", institution.id %> <%= institution.name %>
+        </div>
+      <% end -%>
+    </div>
+  <% end %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

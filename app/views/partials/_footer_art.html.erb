@@ -1,0 +1,39 @@
+<footer class="single">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-2">
+				<% if @article.user.avatar.exists? %>
+					<%= image_tag(@article.user.avatar, class: "user-icon") %>
+				<% else %>
+					<%= image_tag(@article.user.gravatar, class: "user-icon") %>
+				<% end %>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+			  <div class="category-list">
+			    <p>Publicado el <span><%= @article.created_at.to_formatted_s(:long) %></span></p>
+			    <p><%= link_to @article.user.profile.full_name, @article.user.profile %> in <%= link_to @article.categories[0].name, @article.categories[0] %></p>
+			    <div class="other-catergories">
+			      <h3>Tambien publicado en</h3>
+			      <ul>
+			      	<% @article.categories.each do |category|%>
+								<li><%= link_to category.name, category %></li>
+							<% end %>
+			      </ul>
+			    </div>
+			  </div>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<div class="social">
+				    <p>Comparte este articulo</p>
+				    <div class="social-links">
+				        <a class="social-icon" href="http://adventurethemes.com/demo/writer/html/v2-1/post.html#" data-platform="twitter" data-message="Message about this post" data-url="http://writertheme.com/post"><i class="fa fa-twitter"></i></a>
+
+				        <a class="social-icon" href="http://adventurethemes.com/demo/writer/html/v2-1/post.html#" data-platform="facebook" data-message="Message about this post" data-url="http://writertheme.com/post"><i class="fa fa-facebook-official"></i></a>
+
+				        <a class="social-icon" data-platform="mail" href="mailto:support@writertheme.com"><i class="fa fa-envelope"></i></a>
+				    </div>
+				</div>
+			</div>
+		</div><!-- en row -->
+	</div><!-- end container-->
+</footer>

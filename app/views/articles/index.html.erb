@@ -12,7 +12,11 @@
 	    </div>
 
 	    <div class=" col-xs-2  no-gutter">
-	        <img src="assets/fotoSlack.jpg" class="user-icon" alt="user-image">
+	    	<% if article.user.avatar.exists? %>
+	    		<%= image_tag(article.user.avatar, class: "user-icon") %>
+	    	<% else %>
+	    		<%= image_tag(article.user.gravatar, class: "user-icon") %>
+	    	<% end %>
 	    </div>
 		</article>
 	<% end %>          

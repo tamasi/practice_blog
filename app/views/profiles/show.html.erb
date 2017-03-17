@@ -1,22 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="author-bio">
+	<% if @profile.user.avatar.exists? %>
+		<%= image_tag(@profile.user.avatar, class: "user-icon") %>
+	<% else %>
+		<%= image_tag(@profile.user.gravatar, class: "user-icon") %>
+	<% end %>
 
+	<div class="author-bio__info">
+        <h1><%= @profile.full_name %></h1>
+        <p><%= @profile.about %></p>
+    </div>
+</div>
 <p>
-  <strong>User:</strong>
-  <%= @profile.user.email %>
-</p>
 
-<p>
-  <strong>First name:</strong>
-  <%= current_user.profile.first_name %>
-</p>
+</p><h2 class="favorites">Artículos de <%= @profile.full_name %></h2>
 
-<p>
-  <strong>Last name:</strong>
-  <%= current_user.profile.last_name %>
-</p>
+<div class="posts-block animated fadeIn ">
+	<% @profile.user.articles.each do |article| %>
+	    <article class="post author-page">
+	        <div class="post-preview col-xs-10  no-gutter">
+	            <h2><%= link_to article.title, article_path %></h2>
+	            <p><%= truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:40) %></p>
+	        </div>
+	        <div class="col-sm-3 col-md-1 col-md-offset-1 hidden-sm hidden-xs no-gutter">
+	            <p class="meta">
+	                <span class="time"><i class="fa fa-bookmark"></i> <%= article.reading_time %></span>
+	                <span class="min">minutes</span>
+	            </p>
+	        </div>
+	    </article>
+	<% end %>
 
-<p>
-  <strong>About:</strong>
-  <%= @profile.about %>
-</p>
+    
 
+    <div class="view-all-by-author">
+        <a href="http://adventurethemes.com/demo/writer/html/v2-1/index.html">View All Post by Michelle <i class="fa fa-chevron-right"></i></a>
+    </div>
+</div>

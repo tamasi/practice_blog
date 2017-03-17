@@ -8,6 +8,10 @@ class Profile < ApplicationRecord
 	# 	@institutions = value
 	# end
 
+	def full_name
+		full_name = self.first_name+" "+self.last_name
+	end
+
 	private
 	
 end

@@ -1,24 +1,20 @@
-<h1><%= @article.title %></h1>
-<% unless @article.user.nil? %>
-	<p>
-		Escrito por: <%= @article.user.email %>
-	</p>
-<%end%>
-<div class="field">
-	<% @article.categories.each do |category|%>
-		<%= link_to category.name, category, style:"color:#{category.color}" %>
-	<% end %>
+<div>
+	<%= link_to "Editar", edit_article_path(@article) %>
 </div>
-<div class="field">
-	<%= image_tag @article.cover.url(:medium) %>
-</div>
-	<p>
-		visitas: <%= @article.visits_count %>
-	</p>
-<div class="fr-view">
-	<%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
-</div>
-<div class="field">
+
+
+<div class="col-xs-12 single-content">
+    <p class="meta">
+      <%= link_to @article.user.profile.full_name, @article.user.profile %> in <%= link_to @article.categories.first ? @article.categories.first.name : "Sin Categorias", @article.categories.first ? @article.categories.first : @article.user.profile %> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> <%= @article.reading_time %> minute read <i class="link-spacer"></i> leído <%= @article.visits_count %> veces
+    </p>
+
+    <h1><%= @article.title %></h1>
+
+    <p class="subtitle">Like I said, never told...</p>
+
+    <%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
+</div><!-- main-content/col -->
+<div class="col-xs-12 single-content">
 	<h3>Comentarios</h3>
 	<%= render "comments/form" %>
 	<ul id="comments-box">
@@ -28,7 +24,4 @@
 			</li>
 		<%end%>
 	</ul>
-</div>
-<div>
-	<%= link_to "Editar", edit_article_path(@article) %>
 </div>

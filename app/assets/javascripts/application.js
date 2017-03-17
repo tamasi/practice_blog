@@ -14,7 +14,6 @@
 //= require modernizr.custom.32229-2.8-respondjs-1-4-2.js
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require froala_editor.min.js
 //= require plugins/font_size.min.js
 //= require plugins/paragraph_format.min.js

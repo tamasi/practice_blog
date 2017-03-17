@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="js svg jPanelMenu">
+  <head>
+    <title>Iurisdictio</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body data-menu-position="closed" style="background-color: rgb(51, 51, 55);">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%= value %>
+      </div>
+    <% end %>
+    <!-- if the user has javascript disabled they can still use the menu -->
+    <div class="jPanelMenu-panel" style="position: relative; left: 0px;">
+      <noscript>
+      &lt;div class="no-js-menu"&gt;
+          &lt;ul&gt;
+              &lt;li&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;a href="author.html"&gt;John Smith&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-anchor"&gt;&lt;/i&gt;&lt;a href="page.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;a href="favorites.html"&gt;Favorites&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-file"&gt;&lt;/i&gt;&lt;a href="post.html"&gt;Post Page&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-file"&gt;&lt;/i&gt;&lt;a href="post-sidebar.html"&gt;Post with Sidebar&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;&lt;a href="alt-home.html"&gt;Alternate Home&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;i class="fa fa-image"&gt;&lt;/i&gt;&lt;a href="category.html"&gt;Category Page&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/div&gt;
+      </noscript>
+
+      <header class="hero-image" role="banner" style="background-image: url(<%= @article.cover.url %>);">
+
+            <span class="menu-trigger animated fadeInDown">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
+            <%= render "partials/sidebarnav" %>
+        </header>
+      <main class="container">
+        <div class="row">
+          <%= yield %>
+        </div>
+      </main>
+      <%= render "partials/footer_art" %>
+    </div>
+    <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
+      <ul>
+          <li><i class="fa fa-home"></i><%= link_to "Home", root_path %></li>
+          <li><i class="fa fa-user"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/author.html">John Smith</a></li>
+          <li><i class="fa fa-anchor"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/page.html">About</a></li>
+          <li><i class="fa fa-star"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/favorites.html">Favorites</a></li>
+          <li><i class="fa fa-paper-plane"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/contact.html">Contact</a></li>
+      </ul>
+      <hr>
+      <ul>
+          <li><i class="fa fa-file"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/post.html">Post Page</a></li>
+          <li><i class="fa fa-file"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/post-sidebar.html">Post with Sidebar</a></li>
+
+          <li><i class="fa fa-home"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/alt-home.html">Alternate Home</a></li>
+          <li><i class="fa fa-image"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/category.html">Category Page</a></li>
+      </ul>
+    </div>
+        <!-- end no script -->
+
+    <style id="jPanelMenu-style-master">body{width:100%}.jPanelMenu,body{overflow-x:hidden}#jPanelMenu-menu{display:block;position:fixed;top:0;left:0;height:100%;z-index:-1;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch}.jPanelMenu-panel{position:static;left:0;top:0;z-index:2;width:100%;min-height:100%;background:rgb(255, 255, 255)}</style>
+
+    <script>
+      $(function(){
+        $('#carga').click(function(){
+          $.ajax({
+              url: "/categories",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+
+      $(function(){
+        $('#art').click(function(){
+          $.ajax({
+              url: "/articles",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>

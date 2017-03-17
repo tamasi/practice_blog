@@ -28,6 +28,12 @@ class Article < ApplicationRecord
 		self.update(visits_count: self.visits_count + 1)
 	end
 
+	def reading_time
+		words_per_minute = 150
+		text = Nokogiri::HTML(self.body).at('body').inner_text
+    	(text.scan(/\w+/).length / words_per_minute).to_i
+	end
+
 	aasm column: "state" do
 		state :in_draft, initial: true
 		state :published

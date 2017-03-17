@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
 	def show
 		@article.update_visits_count
 		@comment = Comment.new
+		render layout: "article_lay"
 	end
 	#GET /articles/new
 	def new
