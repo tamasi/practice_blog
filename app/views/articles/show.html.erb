@@ -1,16 +1,11 @@
-<div>
-	<%= link_to "Editar", edit_article_path(@article) %>
-</div>
-
-
 <div class="col-xs-12 single-content">
     <p class="meta">
-      <%= link_to @article.user.profile.full_name, @article.user.profile %> in <%= link_to @article.categories.first ? @article.categories.first.name : "Sin Categorias", @article.categories.first ? @article.categories.first : @article.user.profile %> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> <%= @article.reading_time %> minute read <i class="link-spacer"></i> leído <%= @article.visits_count %> veces
+      <%= link_to @article.user.profile.full_name, @article.user.profile %> in <%= link_to @article.categories.first ? @article.categories.first.name : "Sin Categorias", @article.categories.first ? @article.categories.first : @article.user.profile %> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> <%= @article.reading_time %> minute read <i class="link-spacer"></i> leído <%= @article.visits_count %> veces<i class="link-spacer"></i><span style="float: right;"><%= link_to "Editar este Artículo", edit_article_path(@article) if @article.user == current_user %></span> 
     </p>
 
-    <h1><%= @article.title %></h1>
+    <h1><%= @article.title %></h1> 
 
-    <p class="subtitle">Like I said, never told...</p>
+    <p class="subtitle"><%= @article.subtitle ? @article.subtitle : "" %></p>
 
     <%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
 </div><!-- main-content/col -->

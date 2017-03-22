@@ -10,6 +10,7 @@ class Article < ApplicationRecord
 	validates :body, presence: true, length: { minimum: 20 }
 	before_create :set_visits_count
 	after_create :save_categories
+	after_update :save_categories
 
 	#Metodo de paperclip para agregar los archivos de imagenes al modelo
 	has_attached_file :cover, styles: { medium: "1280x720", thumb: "800x600" }

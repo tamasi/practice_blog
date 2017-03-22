@@ -1,20 +1,17 @@
-<section class="sidebar col-md-5 col-sm-12" style="background-image:url(<%= asset_path 'default-sidebar.jpg' %>); left: 0px;">
+<section class="sidebar col-md-5 col-sm-12" style="background-image:url(<%= @enable_joinus ? asset_path('guamanpoma.jpg') : @category.cover.url %>); left: 0px;">
   <span class="menu-trigger animated fadeInDown">
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>
   </span>
   <div class="site-info">
-    <div class="primary-info">
-        <h1>Iurisdictio</h1>
-        <p>Un blog sobre historia, justicia y derecho <a href="http://adventurethemes.com/demo/writer/html/v2-1/post.html">Mira nuestros artículos.</a> </p>
-
-        <p>Scientia est content</p>
-    </div>
-    <div class="secondary-info">
-        <p>
-            <a class="btn btn-primary" href="http://adventurethemes.com/demo/writer/html/v2-1/index.html#"><i class="fa fa-user-plus"></i>Join Our Newsletter</a>
-        </p>
-    </div>
+    <% if @enable_joinus %>
+      <%= render "partials/joius" if @enable_joinus %>
+    <% else %>
+      <div class="primary-info">
+        <h1><%= @category.name %></h1>
+        <p>Descripcion de la categoria</p>
+      </div>
+    <% end -%>
   </div>
 </section><!--end sidebar-->

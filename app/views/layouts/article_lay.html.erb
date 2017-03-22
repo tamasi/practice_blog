@@ -17,23 +17,7 @@
       </div>
     <% end %>
     <!-- if the user has javascript disabled they can still use the menu -->
-    <div class="jPanelMenu-panel" style="position: relative; left: 0px;">
-      <noscript>
-      &lt;div class="no-js-menu"&gt;
-          &lt;ul&gt;
-              &lt;li&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;a href="author.html"&gt;John Smith&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-anchor"&gt;&lt;/i&gt;&lt;a href="page.html"&gt;About&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;a href="favorites.html"&gt;Favorites&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-file"&gt;&lt;/i&gt;&lt;a href="post.html"&gt;Post Page&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-file"&gt;&lt;/i&gt;&lt;a href="post-sidebar.html"&gt;Post with Sidebar&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;&lt;a href="alt-home.html"&gt;Alternate Home&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-image"&gt;&lt;/i&gt;&lt;a href="category.html"&gt;Category Page&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-      &lt;/div&gt;
-      </noscript>
-
+    <!-- aqui se genera div class="jPanelMenu-panel" -->
       <header class="hero-image" role="banner" style="background-image: url(<%= @article.cover.url %>);">
 
             <span class="menu-trigger animated fadeInDown">
@@ -49,7 +33,7 @@
         </div>
       </main>
       <%= render "partials/footer_art" %>
-    </div>
+    <!-- hasta aqui queda contenido en jpanelmenupanel -->
     <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
       <ul>
           <li><i class="fa fa-home"></i><%= link_to "Home", root_path %></li>

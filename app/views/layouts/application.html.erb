@@ -10,29 +10,9 @@
   </head>
 
   <body data-menu-position="closed" style="background-color: rgb(51, 51, 55);">
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %> alert-dismissable">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <%= value %>
-      </div>
-    <% end %>
+    
     <!-- if the user has javascript disabled they can still use the menu -->
-    <div class="jPanelMenu-panel" style="position: relative; left: 0px;">
-      <noscript>
-      &lt;div class="no-js-menu"&gt;
-          &lt;ul&gt;
-              &lt;li&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;&lt;a href="author.html"&gt;John Smith&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-anchor"&gt;&lt;/i&gt;&lt;a href="page.html"&gt;About&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-star"&gt;&lt;/i&gt;&lt;a href="favorites.html"&gt;Favorites&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-paper-plane"&gt;&lt;/i&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-file"&gt;&lt;/i&gt;&lt;a href="post.html"&gt;Post Page&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-file"&gt;&lt;/i&gt;&lt;a href="post-sidebar.html"&gt;Post with Sidebar&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;&lt;a href="alt-home.html"&gt;Alternate Home&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;i class="fa fa-image"&gt;&lt;/i&gt;&lt;a href="category.html"&gt;Category Page&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-      &lt;/div&gt;
-      </noscript>
+    <!-- se genera el div class="jPanelMenu-panel" -->
       <main class="container left-container">
         <div class="row">
           <%= render "partials/sidebarnav" %>
@@ -43,6 +23,12 @@
               <%= link_to "Categorias", categories_path, class:"select-categories", id:"carga", remote: true %>  
             </div>
             <div id="remove">
+              <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %> alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <%= value %>
+                </div>
+              <% end %>
               <%= yield %>
             </div>
             <footer class="split-footer">
@@ -53,7 +39,7 @@
           </section>
         </div><!-- row -->
       </main>
-    </div>
+    <!-- hasta aqui esta contenido en jPanelMenu-Panel -->
     <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
       <ul>
           <li><i class="fa fa-home"></i><%= link_to "Home", root_path %></li>

@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
 
 	#PUT /articles/update
 	def update
+		@article.categories = params[:categories]
 		if @article.update(article_params)
 			redirect_to @article
 		else
@@ -42,7 +43,7 @@ class ArticlesController < ApplicationController
 		end
 	end
 	def edit
-		
+		render layout: "article_lay"
 	end
 
 	def destroy
@@ -61,7 +62,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def article_params
-		params.require(:article).permit(:title,:body, :cover, :categories)
+		params.require(:article).permit(:title,:body, :cover, :categories, :subtitle)
 	end
 
 	def set_article
