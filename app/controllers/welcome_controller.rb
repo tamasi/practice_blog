@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   before_action :authenticate_admin!, only: [:dashboard]
-  before_action :set_joinus, only: [:index]
+  before_action :set_joinus, only: [:index, :dashboard]
 
   def index
 
