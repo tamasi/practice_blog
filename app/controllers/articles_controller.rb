@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
 		@articles = Article.paginate(page: params[:page],per_page:5).publicados.ultimos
 		render :layout => false
 	end
+
 	#GET /articles/:id
 	def show
 		@article.update_visits_count
@@ -42,6 +43,7 @@ class ArticlesController < ApplicationController
 			render :edit
 		end
 	end
+
 	def edit
 		render layout: "article_lay"
 	end
@@ -55,6 +57,12 @@ class ArticlesController < ApplicationController
 		@article.publish!
 		redirect_to @article
 	end
+
+	def mark_as_read_later
+		ReadLater.create(article_id: @article.id, profile_id: current_user.profile.id)
+		redirect_to @article
+	end
+
 
 	private
 	def find_model

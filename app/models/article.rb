@@ -3,8 +3,12 @@ class Article < ApplicationRecord
 
 	belongs_to :user
 	has_many :comments
+
 	has_many :has_categories
 	has_many :categories, through: :has_categories
+
+	has_many :read_later
+	has_many :profiles, through: :read_later 
 	
 	validates :title, presence: true, uniqueness: true
 	validates :body, presence: true, length: { minimum: 20 }
@@ -46,9 +50,8 @@ class Article < ApplicationRecord
 		event :unpublish do
 			transitions from: :published, to: :in_draft
 		end
-
 	end
-	
+
 	private
 
 	def set_visits_count
@@ -62,4 +65,5 @@ class Article < ApplicationRecord
 			end
 		end
 	end
+
 end

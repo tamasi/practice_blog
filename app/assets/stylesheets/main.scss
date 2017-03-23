@@ -838,6 +838,14 @@ ol li {
   border-radius: 50%;
 }
 
+.user-topnav-icon {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  float: right;
+  border-radius: 50%;
+}
+
 /* line 1, ../sass/partials/_menu.sass */
 #menu-target {
   position: absolute !important;
@@ -1987,4 +1995,15 @@ a:hover, a:active, a:focus {
   text-decoration: none;
   color: #333;
   border-bottom: solid 1px #999;
+}
+
+
+.align-links-nav-rigth {
+  text-align: right;
+  float: right;
+  vertical-align: top;
+}
+
+.item-nav-rigth{
+  vertical-align: top;
 }
