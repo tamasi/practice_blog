@@ -4,27 +4,27 @@
 			* <%= message %>
 		</div>
 	<%end%>
-	<div class="field">
+	<div class="form-group">
 		<%= f.text_field :title, placeholder: "Titulo", class:"form-control" %>
 	</div>
-	<div class="field">
+	<div class="form-group">
 		<%= f.text_field :subtitle, placeholder: "Subtitulo", class:"form-control" %>
 	</div>
-	<div class="field">
+	<div class="form-group">
 		Portada: <%= f.file_field :cover %>
 	</div>
-	<div class="field">
+	<div class="form-group">
 		<%= f.text_area :body, class:"form-control", style:"height:250px;" %>
 	</div>
-	<div class="field">
+	<div class="form-group">
 		<label for="">Categorias</label> 
 		<% @categories.each do |category| %>
-			<div class="field">
+			<div class="form-group">
 				<%= check_box_tag "categories[]", category.id %> <%= category.name %>
 			</div>
 		<% end -%>
 	</div>
-	<div class="field">
+	<div class="form-group">
 		<%= f.submit "Guardar" %>
 	</div>
 <% end %>
