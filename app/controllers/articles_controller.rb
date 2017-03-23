@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 	before_action :set_article, except: [:index,:new,:create]
 	before_action :authenticate_admin!, only:[:destroy, :publish]
 	before_action :authorization_for_editors_and_admins, only: [:new, :create, :update]
+	before_action :set_joinus, only:[:new]
 
 	#GET /articles
 	def index 
