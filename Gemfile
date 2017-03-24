@@ -36,6 +36,7 @@ gem 'paperclip'
 gem 'aasm'
 gem 'will_paginate'
 gem 'sanitize'
+gem 'aws-sdk'
 
 # Gem installes by me instead of the proposed ones
 gem "wysiwyg-rails"
