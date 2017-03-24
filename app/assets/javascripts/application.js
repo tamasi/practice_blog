@@ -18,6 +18,10 @@
 //= require plugins/font_size.min.js
 //= require plugins/paragraph_format.min.js
 //= require plugins/paragraph_style.min.js
+//= require plugins/align.min.js
+//= require plugins/fullscreen.min.js
+//= require plugins/link.min.js
+//= require plugins/lists.min.js
 //= require bootstrap-sprockets
 //= require jquery.jpanelmenu.min.js
 //= require comments

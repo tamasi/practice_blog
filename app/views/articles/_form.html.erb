@@ -5,24 +5,31 @@
 		</div>
 	<%end%>
 	<div class="form-group">
-		<%= f.text_field :title, placeholder: "Titulo", class:"form-control" %>
+		<%= f.label :Titulo %>
+		<%= f.text_field :title, placeholder: "Titulo para el articulo", class:"form-control" %>
 	</div>
 	<div class="form-group">
+		<%= f.label :Subtitulo %>
 		<%= f.text_field :subtitle, placeholder: "Subtitulo", class:"form-control" %>
 	</div>
 	<div class="form-group">
-		Portada: <%= f.file_field :cover %>
+		<%= f.label :Portada %>
+		<%= f.file_field :cover, class: "form-control" %>
 	</div>
 	<div class="form-group">
 		<%= f.text_area :body, class:"form-control", style:"height:250px;" %>
 	</div>
 	<div class="form-group">
 		<label for="">Categorias</label> 
-		<% @categories.each do |category| %>
-			<div class="form-group">
-				<%= check_box_tag "categories[]", category.id %> <%= category.name %>
-			</div>
-		<% end -%>
+		<div class="row">
+			<% @categories.each do |category| %>
+				<div class="col-md-3">
+					<label class="checkbox-inline">
+						<%= check_box_tag "categories[]", category.id %><%= category.name %>
+					</label>
+				</div>
+			<% end -%>
+		</div>
 	</div>
 	<div class="form-group">
 		<%= f.submit "Guardar" %>
