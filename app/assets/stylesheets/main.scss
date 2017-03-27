@@ -764,8 +764,7 @@ ol li {
 }
 
 /* line 78, ../sass/partials/_bootstrap-components.sass */
-.alert-info
-.alert-notice {
+.alert-info {
   background: #f0e7f4;
   border-color: #e6d5ed;
   color: #713b87;
@@ -2013,3 +2012,24 @@ a:hover, a:active, a:focus {
   font-size: 2em;
   color: #B6B6B6;
 }
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+ }
+
+ #error_explanation{
+  background: #fef7f7;
+  border-color: #fae1e1;
+  color: #be1e1e;
+ }
+
+ #error_explanation h2{
+  font-size: 2.5em;
+ }
+
+ #error_explanation ul{
+  font-size: 1.5em;
+ }

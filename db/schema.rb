@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322154943) do
+ActiveRecord::Schema.define(version: 20170324204422) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170322154943) do
     t.datetime "cover_updated_at"
     t.string   "state",              default: "in_draft"
     t.string   "subtitle"
+    t.string   "how_quote"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 

@@ -19,14 +19,7 @@
           <%= render "partials/sectionHome" %>
           <section class="col-md-7 col-sm-12 col-md-offset-5 main-content">
             <div class="row">
-              <div class="col-md-6 sub-nav">
-                <%= link_to "Artículos", articles_path, class:"select-posts", id: "art", remote: true %>
-                <%= link_to "Categorias", categories_path, class:"select-categories", id:"carga", remote: true %>  
-                
-              </div>
-              <% unless current_user.nil? %>
-                <%= render "partials/loguedusermenu" %>
-              <% end %>
+              <%= render "partials/sub-nav" %>
             </div>
             <div id="remove">
               <% flash.each do |key, value| %>
