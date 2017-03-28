@@ -42,13 +42,13 @@ GEM
     arel (7.1.4)
     autoprefixer-rails (6.7.6)
       execjs
-    aws-sdk (2.8.11)
-      aws-sdk-resources (= 2.8.11)
-    aws-sdk-core (2.8.11)
+    aws-sdk (2.8.13)
+      aws-sdk-resources (= 2.8.13)
+    aws-sdk-core (2.8.13)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.8.11)
-      aws-sdk-core (= 2.8.11)
+    aws-sdk-resources (2.8.13)
+      aws-sdk-core (= 2.8.13)
     aws-sigv4 (1.0.0)
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
@@ -205,7 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
-  aws-sdk
+  aws-sdk (~> 2.8, >= 2.8.12)
   bootstrap-sass (~> 3.3.6)
   byebug
   coffee-rails (~> 4.2)

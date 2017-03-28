@@ -36,7 +36,6 @@ gem 'paperclip'
 gem 'aasm'
 gem 'will_paginate'
 gem 'sanitize'
-gem 'aws-sdk'
 
 # Gem installes by me instead of the proposed ones
 gem "wysiwyg-rails"
@@ -65,6 +64,7 @@ end
 
 group :production do
 	gem 'pg'
+  gem 'aws-sdk', '~> 2.8', '>= 2.8.12'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
