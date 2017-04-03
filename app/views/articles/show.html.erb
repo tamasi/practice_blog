@@ -10,13 +10,10 @@
 
   <p class="subtitle"><%= @article.subtitle ? @article.subtitle : "" %></p>
 
-  <%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %>
+  <!-- <%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %> -->
 
   <div>
-  	<h1><%= @article.title %> Desde PDF</h1>
   	<iframe src=<%= @article.artpdf.url %> style="width:718px; height:700px;" frameborder="0"></iframe>
-  	<h3>Embeded PDS</h3>
-  	<embed src=<%= @article.artpdf.url %> width="500" height="375" type='application/pdf'>
   </div>
   <div class="panel panel-default">
   	<div class="panel-heading">Como citar este artículo</div>
