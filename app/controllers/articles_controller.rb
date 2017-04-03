@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
 	before_action :authorization_for_editors_and_admins, only: [:new, :create, :update]
 	before_action :set_joinus, only:[:new]
 
+	layout "article_lay", only: [:show, :edit, :update]
+
 	#GET /articles
 	def index 
 		@articles = Article.paginate(page: params[:page],per_page:5).publicados.ultimos
@@ -16,7 +18,6 @@ class ArticlesController < ApplicationController
 	def show
 		@article.update_visits_count
 		@comment = Comment.new
-		render layout: "article_lay"
 	end
 	#GET /articles/new
 	def new
@@ -46,7 +47,6 @@ class ArticlesController < ApplicationController
 	end
 
 	def edit
-		render layout: "article_lay"
 	end
 
 	def destroy
@@ -71,7 +71,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def article_params
-		params.require(:article).permit(:title,:body, :cover, :categories, :subtitle, :how_quote)
+		params.require(:article).permit(:title,:body, :cover, :categories, :subtitle, :how_quote, :artpdf)
 	end
 
 	def set_article

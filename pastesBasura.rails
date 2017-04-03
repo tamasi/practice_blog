@@ -1,3 +1,5 @@
+<%= @enable_joinus ? asset_path('guamanpoma.jpg') : @category.cover.url %>
+
 <%= render "partials/navigation" %>
     <div class="container">
         <% flash.each do |name, msg| %>

@@ -21,6 +21,11 @@ class Article < ApplicationRecord
 	#validación para que solo se permitan los archivos que nosotros queremos - la expresión regular es para permitir todo tipo de archivos de imagenes
 	validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
+	#upload articles in PDF
+	has_attached_file :artpdf
+	#validation to pdf file
+	#validates_attachment_content_type :artpdf, :content_type => { :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) }
+
 	scope :publicados, ->{ where(state: "published") }
 	scope :ultimos, ->{ order("created_at DESC") }
 

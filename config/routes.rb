@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notices
   resources :institutions
   resources :categories
   devise_for :users, :path => 'accounts'
