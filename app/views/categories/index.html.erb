@@ -3,11 +3,11 @@
     <section>
       <% @categories.each do |category| %>
         <div class="category-preview col-xs-6 col-sm-4 ">
-            <h2><%= category.name %></h2>
-            <% if !current_user.nil? && current_user.is_admin? %>
-              <h6><%= link_to 'Edit', edit_category_path(category) %> - <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></h6>
-            <% end -%>
-            <%= link_to image_tag(category.cover.url, class:'category-images'), category %>
+          <h2><%= category.name %></h2>
+          <% if !current_user.nil? && current_user.is_admin? %>
+            <h6 class="btn"><%= link_to 'Edit', edit_category_path(category) %> - <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></h6>
+          <% end -%>
+          <%= link_to image_tag(category.cover.url, class:'category-images'), category %>
         </div>
       <% end -%>
     </section>
@@ -17,5 +17,5 @@
 <p id="notice"><%= notice %></p>
 
 <% if !current_user.nil? && current_user.is_admin? %>
-  <%= link_to 'New Category', new_category_path %>
+  <%= link_to 'New Category', new_category_path, class: 'btn btn-default' %>
 <% end -%>
