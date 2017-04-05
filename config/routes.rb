@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   get "/dashboard", to: "welcome#dashboard"
   put "/articles/:id/publish", to: "articles#publish"
   put "/articles/:id/read_later", to: "articles#mark_as_read_later"
+  put "/notices/:id/publish", to: "notices#publish"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

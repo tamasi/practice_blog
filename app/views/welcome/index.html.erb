@@ -1,9 +1,29 @@
-<% unless current_user.nil? %>
-	<h1>¡¡Bienvenidos <%= current_user.email %></h1>
-	
-	<iframe src="http://docs.google.com/gview?url=http://www.pdf995.com/samples/pdf.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe>
-	<embed src="http://www.pdf995.com/samples/pdf.pdf" width="500" height="375" type='application/pdf'>
+<h1>AMERICANAE IURISDICTIO</h1>
+<section class="row">
+  <div class="col-sm-12">
+    <h2 class="favorites">Últimas Noticias</h2>
+  </div>
 
-<%else%>
-	<h1>bienvenido</h1>
-<% end -%>
+  <% @notices.each do |notice| %>
+    <article class="post-favorite col-xs-12 col-sm-6 ">
+    	<div class="notice-preview col-xs-6 col-sm-4 ">
+          <%= link_to image_tag(notice.cover.url), root_path %>
+      </div>
+      <h2><%= link_to notice.title, notice %></h2>
+      <p><%= notice.body %> </p>
+    </article>
+  <% end -%>
+</section><!-- end fav posts -->
+
+<section class="row favorite-categories animated fadeIn">
+	<div class="col-sm-12">
+	  <h2 class="favorites">Ultimos Post</h2>
+	</div>
+
+	<% @articles.each do |article| %>
+		<article class="post-favorite col-xs-12 col-sm-6 ">
+	    <h2><%= link_to article.title, article %></h2>
+	    <p><%= article.subtitle %></p>
+    </article>
+	<% end -%>
+</section><!-- end latest articles section -->

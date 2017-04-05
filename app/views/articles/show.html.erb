@@ -12,8 +12,8 @@
 
   <!-- <%= Sanitize.fragment(@article.body, Sanitize::Config::RELAXED).html_safe %> -->
 
-  <div>
-  	<iframe src="https://docs.google.com/gview?url=https:<%= @article.artpdf.url %>&embedded=true" style="width:800px; height:1000px;" frameborder="0"></iframe>
+  <div class="iframecontent">
+  	<iframe src="https://docs.google.com/gview?url=https:<%= @article.artpdf.url %>&embedded=true" style="width:800px; height:900px;" frameborder="0"></iframe>
   </div>
   <div class="panel panel-default">
   	<div class="panel-heading">Como citar este artículo</div>

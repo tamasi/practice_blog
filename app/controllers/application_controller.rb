@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_categories
+  before_action :set_notices
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_institution_for_profile, if: :devise_controller?
   before_action :set_joinus, if: :devise_controller?
@@ -24,6 +25,10 @@ class ApplicationController < ActionController::Base
         HasInstitution.create(institution_id: institution_id, profile_id: @current_user.profile.id)
       end
     end
+  end
+
+  def set_notices
+    @notices = Notice.publicados
   end
 
 	def configure_permitted_parameters

@@ -1,5 +1,6 @@
 class NoticesController < ApplicationController
-  before_action :set_notice, only: [:show, :edit, :update, :destroy]
+  before_action :set_notice, except: [:index,:new,:create]
+  before_action :set_joinus, only:[:new, :show, :edit]
 
   # GET /notices
   # GET /notices.json
@@ -61,6 +62,11 @@ class NoticesController < ApplicationController
     end
   end
 
+  def publish
+    @notice.publish!
+    redirect_to @notice
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_notice
@@ -69,6 +75,6 @@ class NoticesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notice_params
-      params.require(:notice).permit(:title, :body)
+      params.require(:notice).permit(:title, :body, :cover)
     end
 end

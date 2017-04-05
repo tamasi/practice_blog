@@ -8,3 +8,17 @@
 		<% end -%>
 	</div>
 <% end %>
+
+<h1>	Noticias </h1>
+<%= @notices.each do |notice| %>
+	<h1><%= link_to notice.title, notice %></h1>
+	<div>
+		<p> <%= notice.body %> </p>
+		<%= link_to "Eliminar", notice, method: :delete %>
+		<% if notice.may_publish? %>
+			<%= link_to "Publicar", "/notices/#{notice.id}/publish", method: :put %>
+		<% else %>
+			<%= link_to "Despublicar", "/notices/#{notice.id}/unpublish", method: :put %>
+		<% end %>
+	</div>
+<% end %>
