@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Autores</h1>
+<p>todos los usuarios que tienen artículos en la pagina</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.email %></td>
+        <td><%= author.profile.first_name %></td>
+        <td><%= author.profile.last_name %></td>
+        <td><%= link_to 'show', author.profile %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

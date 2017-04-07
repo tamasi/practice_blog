@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   resources :institutions
   resources :categories
   devise_for :users, :path => 'accounts'
-  resources :profiles, only: [:index, :show]
+  resources :profiles, only: [:index, :show] do
+    member do
+      get 'authors'
+    end
+  end
   # resources :users, only: [:index] do
   #   resources :profiles, only: [:index, :show]
   # end

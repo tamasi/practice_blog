@@ -1,12 +1,16 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authorization_for_editors_and_admins, except: [:show, :index, :edit]
-  before_action :set_joinus, only: [:index, :show]
+  before_action :set_joinus, only: [:index, :show, :authors]
 
   # GET /profiles
   # GET /profiles.json
   def index
     @profiles = Profile.all
+  end
+
+  def authors
+    @authors = User.authors
   end
 
   # GET /profiles/1
