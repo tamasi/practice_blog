@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 	before_action :authorization_for_editors_and_admins, only: [:new, :create, :update]
 	before_action :set_joinus, only:[:new]
 
-	layout "article_lay", only: [:show, :edit, :update, :new]
+	layout "article_lay", only: [:show, :edit, :update]
 
 	#GET /articles
 	def index 
