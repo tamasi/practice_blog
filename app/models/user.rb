@@ -15,6 +15,8 @@ class User < ApplicationRecord
 	#validación para que solo se permitan los archivos que nosotros queremos - la expresión regular es para permitir todo tipo de archivos de imagenes
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
+	scope :authors, -> {where(id: Article.select(:user_id).uniq)}
+
 	include PermissionsConcern
 	
 	def gravatar

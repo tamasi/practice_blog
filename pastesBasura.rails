@@ -1,3 +1,5 @@
+truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:40)
+
 <%= @enable_joinus ? asset_path('guamanpoma.jpg') : @category.cover.url %>
 
 <%= render "partials/navigation" %>
