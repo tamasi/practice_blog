@@ -3,7 +3,7 @@
     <li><i class="fa fa-home"></i><%= link_to "Home", root_path, id: 'ClearActive' %></li>
     <li><i class="fa fa-users"></i><%= link_to "Equipo Editorial", profiles_path %></li>
     <li> <i class="fa fa-user"></i><%= link_to "Autores", authors_profile_path(current_user.id) %> </li>
-    <li><i class="fa fa-anchor"></i><a href="">About</a></li>
+    <li><i class="fa fa-anchor"></i><%= link_to "Quienes somos", about_path %><a href="">About</a></li>
     <li><i class="fa fa-star"></i><a href="">Favorites</a></li>
     <li><i class="fa fa-paper-plane"></i><a href="">Contact</a></li>
   </ul>

@@ -18,7 +18,7 @@
     <% end %>
     <!-- if the user has javascript disabled they can still use the menu -->
     <!-- aqui se genera div class="jPanelMenu-panel" -->
-      <header class="hero-image" role="banner" style="background-image: url(<%= @article.cover.url %>);">
+      <header class="hero-image" role="banner" style="background-image:url(<%= @enable_joinus ? asset_path('guamanpoma.jpg') : @article.cover.url %>);">
 
             <span class="menu-trigger animated fadeInDown">
                 <span class="bar"></span>
@@ -32,7 +32,12 @@
           <%= yield %>
         </div>
       </main>
-      <%= render "partials/footer_art" %>
+
+      <% if !@enable_joinus %>
+        <%= render "partials/footer_art" %>
+      <% else %>
+        <%= render "partials/footer_about" %>
+      <% end -%>
     <!-- hasta aqui queda contenido en jpanelmenupanel -->
     <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
       <ul>

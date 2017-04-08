@@ -1,3 +1,31 @@
+ajax para article#index y category#index
+<script>
+      $(function(){
+        $('#carga').click(function(){
+          $.ajax({
+              url: "/categories",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+
+      $(function(){
+        $('#art').click(function(){
+          $.ajax({
+              url: "/articles",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+    </script>
+
+
 truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:40)
 
 <%= @enable_joinus ? asset_path('guamanpoma.jpg') : @category.cover.url %>
