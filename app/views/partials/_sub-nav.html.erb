@@ -6,20 +6,29 @@
   <%= link_to "Categorias", categories_path, class:"select-categories", id:"carga", remote: true %>  
 </div>
 <div class="col-md-6 sub-nav align-links-nav-rigth">
-  <% if !current_user.nil? %>
-    <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "item-nav-rigth" %>
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.avatar.exists? ? image_tag(current_user.avatar, class: "user-topnav-icon dropdown-toggle") : image_tag(current_user.gravatar, class: "user-topnav-icon dropdown-toggle") %> <span class="caret"></span></a>
-    <ul class="dropdown-menu pull-right">
-      <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-      <li><%= link_to "Publica un Articulo", new_article_path %></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">One more separated link</a></li>
-    </ul>
-  <% else %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "item-nav-rigth" %>
-    <%= link_to "Login", new_user_session_path, class: "item-nav-rigth" %>
-  <% end -%>
+  <div class="col-md-8">
+    <form action="" class="search-form">
+      <div class="form-group has-feedback">
+        <label for="search" class="sr-only">Search</label>
+        <input type="text" class="form-control-1" name="search" id="search" placeholder="Search">
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <% if !current_user.nil? %>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.avatar.exists? ? image_tag(current_user.avatar, class: "user-topnav-icon dropdown-toggle") : image_tag(current_user.gravatar, class: "user-topnav-icon dropdown-toggle") %> <span class="caret"></span></a>
+      <ul class="dropdown-menu pull-right">
+        <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        <li><%= link_to "Publica un Articulo", new_article_path %></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "item-nav-rigth" %></li>
+      </ul>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "item-nav-rigth" %>
+    <% end -%>
+  </div>
 </div>
