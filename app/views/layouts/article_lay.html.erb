@@ -18,7 +18,7 @@
     <% end %>
     <!-- if the user has javascript disabled they can still use the menu -->
     <!-- aqui se genera div class="jPanelMenu-panel" -->
-      <header class="hero-image" role="banner" style="background-image:url(<%= @enable_joinus ? asset_path('guamanpoma.jpg') : @article.cover.url %>);">
+      <header class="hero-image" role="banner" style="background-image:url(<%= @enable_joinus || @article.cover.nil ? asset_path('guamanpoma.jpg') : @article.cover.url %>);">
 
             <span class="menu-trigger animated fadeInDown">
                 <span class="bar"></span>
