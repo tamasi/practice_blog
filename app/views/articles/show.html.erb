@@ -25,10 +25,10 @@
 <div class="col-xs-12 single-content">
 	<h3>Comentarios</h3>
 	<%= render "comments/form" %>
-	<ul id="comments-box">
+	<ul id="comments-box" class="list-group">
 		<% @article.comments.each do |comment| %>
-			<li>
-				<%= comment.body %> - <%= comment.user.email %>
+			<li class="list-group-item">
+				<%= comment.body %> <i class="link-spacer"></i> <i class="info-font-author"><%= comment.user.profile.full_name %></i>
 			</li>
 		<%end%>
 	</ul>

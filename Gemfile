@@ -46,6 +46,9 @@ gem 'font-awesome-sass'
 # adding bootstrap 3 for rails
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'pg'
+gem 'pg_search'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -53,7 +56,6 @@ end
 
 group :development do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
   gem 'listen'
@@ -63,7 +65,6 @@ group :development do
 end
 
 group :production do
-	gem 'pg'
   gem 'aws-sdk', '~> 2.8', '>= 2.8.12'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

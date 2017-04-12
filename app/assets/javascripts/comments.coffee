@@ -5,7 +5,7 @@
 $(document).on "ajax:success", "form#comments-form", (ev,data)->
 	console.log data
 	$(this).find("textarea").val("")
-	$("#comments-box").append("<li> #{data.body} - #{data.user.email} </li>")
+	$("#comments-box").append("<li class='list-group-item'> #{data.body} <i class='link-spacer'></i> <i class='info-font-author'> #{data.user.full_name} </i></li>")
 
 $(document).on "ajax:error", "form#comments-form", (ev,data)->
 	console.log data

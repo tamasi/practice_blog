@@ -2018,6 +2018,7 @@ a:hover, a:active, a:focus {
   border-color: #d6e9c6;
   color: #468847;
   text-align: left;
+  font-size: medium;
  }
 
  #error_explanation{
@@ -2139,4 +2140,17 @@ a:hover, a:active, a:focus {
 
 .jumbotron p {
   text-align: center;
+}
+
+.panel-heading{
+  font-size: x-large;
+}
+
+.panel-body{
+  font-size: large;
+}
+
+.info-font-author{
+  font-size: 1em;
+  color: #B6B6B6;
 }

@@ -1,3 +1,10 @@
+<<: *default
+  database: db/development.sqlite3
+
+
+
+
+
 ajax para article#index y category#index
 <script>
       $(function(){
