@@ -7,13 +7,13 @@
 </div>
 <div class="col-md-6 sub-nav align-links-nav-rigth">
   <div class="col-md-8">
-    <form action="" class="search-form">
+    <%= form_tag(articles_search_path, :method => "get", class: "search-form", id: "search-form") do %>
       <div class="form-group has-feedback">
         <label for="search" class="sr-only">Search</label>
-        <input type="text" class="form-control-1" name="search" id="search" placeholder="Search">
+        <%= text_field_tag :query, params[:query], placeholder: "Search", class: "form-control-1", name:"query" %>
           <span class="glyphicon glyphicon-search form-control-feedback"></span>
       </div>
-    </form>
+    <% end %>
   </div>
   <div class="col-md-4">
     <% if !current_user.nil? %>

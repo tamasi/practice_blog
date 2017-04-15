@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
-	before_action :find_model
+	before_action :find_model, except: [:search]
 	before_action :authenticate_user!, except: [:show,:index]
-	before_action :set_article, except: [:index,:new,:create]
+	before_action :set_article, except: [:index,:new,:create, :search]
 	before_action :authenticate_admin!, only:[:destroy, :publish]
 	before_action :authorization_for_editors_and_admins, only: [:new, :create, :update]
-	before_action :set_joinus, only:[:new, :create, :index]
+	before_action :set_joinus, only:[:new, :create, :index, :search]
 
 	layout "article_lay", only: [:show, :edit, :update]
 
@@ -64,9 +64,13 @@ class ArticlesController < ApplicationController
 		redirect_to @article
 	end
 
+	def search
+		@articles = Article.search_articles(params[:query]).paginate(page: params[:page],per_page:5).publicados.ultimos
+	end
 
 	private
 	def find_model
+		puts "----#{params[:id].inspect}"
 		@model = Article.find(params[:id]) if params[:id]
 	end
 

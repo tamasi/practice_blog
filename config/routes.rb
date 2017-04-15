@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   # resources :users, only: [:index] do
   #   resources :profiles, only: [:index, :show]
   # end
+  get "/articles/search", to: "articles#search"
 
   resources :articles do
-  	resources :comments, only: [:create, :destroy, :update]
+    resources :comments, only: [:create, :destroy, :update]
   end
   root 'welcome#index'
 

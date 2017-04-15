@@ -29,6 +29,24 @@ class Article < ApplicationRecord
 	scope :publicados, ->{ where(state: "published") }
 	scope :ultimos, ->{ order("created_at DESC") }
 
+	include PgSearch
+	pg_search_scope :search_articles, against: [:title, :body],
+		using: {tsearch: {dictionary:"spanish"}},
+		associated_against: {
+			:user => [:email]
+		}
+
+	def self.text_search(query)
+		if query.present?
+			search_articles(query)
+		else
+			scoped
+		end
+	end
+
+	def get_full_name_from_profile
+		full_name = Article.user.profile.full_name
+	end
 	#custom setter. Nos permite asignar valor a un atributo de un objeto
 	def categories=(value)
 		@categories = value
