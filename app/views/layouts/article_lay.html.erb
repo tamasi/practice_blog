@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body data-menu-position="closed" style="background-color: rgb(51, 51, 55);">
+  <body data-menu-position="closed">
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %> alert-dismissable">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -20,13 +20,47 @@
     <!-- aqui se genera div class="jPanelMenu-panel" -->
       <header class="hero-image" role="banner" style="background-image:url(<%= @enable_joinus ? asset_path('guamanpoma.jpg') : @article.cover.url %>);">
 
-            <span class="menu-trigger animated fadeInDown">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </span>
-            <%= render "partials/sidebarnav" %>
-        </header>
+        <span class="menu-trigger animated fadeInDown">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </span>
+        <%= render "partials/sidebarnav" %>
+      </header>
+      <nav class="hidden-nav navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="" class="navbar-brand">
+              <%= image_tag @article.cover.url, class: "user-topnav-icon" %>
+            </a>
+          </div>
+          <ul class="nav navbar navbar-left">
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"> Home </i>
+              <% end -%>
+            </li>
+            <li><%= link_to @article.user.profile.full_name, @article.user.profile %></li>
+            <li><i class="fa fa-bookmark"> <%= link_to "Read Later", "/articles/#{@article.id}/read_later", method: :put %> </i></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <% if !current_user.nil? %>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.avatar.exists? ? image_tag(current_user.avatar, class: "user-topnav-icon") : image_tag(current_user.gravatar, class: "user-topnav-icon") %> <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                  <li><%= link_to "Publica un Articulo", new_article_path %></li>
+                  <li><%= link_to "Editar este Artículo", edit_article_path(@article) %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "item-nav-rigth" %></li>
+                </ul>
+              <% else %>
+                <%= link_to "Login", new_user_session_path, class: "item-nav-rigth" %>
+              <% end -%>
+            </li>
+          </ul>
+        </div>
+      </nav>
       <main class="container">
         <div class="row">
           <%= yield %>
@@ -38,53 +72,25 @@
       <% else %>
         <%= render "partials/footer_about" %>
       <% end -%>
-    <!-- hasta aqui queda contenido en jpanelmenupanel -->
-    <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
-      <ul>
-          <li><i class="fa fa-home"></i><%= link_to "Home", root_path %></li>
-          <li><i class="fa fa-user"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/author.html">John Smith</a></li>
-          <li><i class="fa fa-anchor"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/page.html">About</a></li>
-          <li><i class="fa fa-star"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/favorites.html">Favorites</a></li>
-          <li><i class="fa fa-paper-plane"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/contact.html">Contact</a></li>
-      </ul>
-      <hr>
-      <ul>
-          <li><i class="fa fa-file"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/post.html">Post Page</a></li>
-          <li><i class="fa fa-file"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/post-sidebar.html">Post with Sidebar</a></li>
-
-          <li><i class="fa fa-home"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/alt-home.html">Alternate Home</a></li>
-          <li><i class="fa fa-image"></i><a href="http://adventurethemes.com/demo/writer/html/v2-1/category.html">Category Page</a></li>
-      </ul>
-    </div>
-        <!-- end no script -->
-
     <style id="jPanelMenu-style-master">body{width:100%}.jPanelMenu,body{overflow-x:hidden}#jPanelMenu-menu{display:block;position:fixed;top:0;left:0;height:100%;z-index:-1;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch}.jPanelMenu-panel{position:static;left:0;top:0;z-index:2;width:100%;min-height:100%;background:rgb(255, 255, 255)}</style>
 
     <script>
+      //caches a jQuery object containing the header element
       $(function(){
-        $('#carga').click(function(){
-          $.ajax({
-              url: "/categories",
-              cache: false,
-              success: function(htmlResponse){
-                $("#remove").html(htmlResponse);
-              }
-          });
-        });
-      });
+        var puto = $(".hidden-nav");
+        console.log("-------------------- putooo!!");
+        $(window).scroll(function() {
+          console.log("----------- entro en windows scroll");
+          var scroll = $(window).scrollTop();
 
-      $(function(){
-        $('#art').click(function(){
-          $.ajax({
-              url: "/articles",
-              cache: false,
-              success: function(htmlResponse){
-                $("#remove").html(htmlResponse);
-              }
-          });
+          if (scroll >= 500) {
+            console.log("--------- entro al if");
+            puto.addClass("show");
+          } else {
+            puto.removeClass("show");
+          }
         });
       });
     </script>
-
   </body>
 </html>
