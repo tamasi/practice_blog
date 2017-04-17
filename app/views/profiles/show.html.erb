@@ -19,7 +19,7 @@
     <article class="post author-page">
       <div class="post-preview col-xs-10  no-gutter">
         <h2><%= link_to article.title, article %></h2>
-        <p><%= truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:40) %></p>
+        <%= truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:40) %>
       </div>
       <div class="col-sm-3 col-md-1 col-md-offset-1 hidden-sm hidden-xs no-gutter">
         <p class="meta">
@@ -29,10 +29,7 @@
       </div>
     </article>
 	<% end %>
-
-    
-
-    <div class="view-all-by-author">
-        <%= link_to "Todos los Articulos de #{@profile.full_name}", root_path %><i class="fa fa-chevron-right"></i>
-    </div>
+  <div class="view-all-by-author">
+    <%= link_to "Todos los Articulos de #{@profile.full_name}", root_path %><i class="fa fa-chevron-right"></i>
+  </div>
 </div>
