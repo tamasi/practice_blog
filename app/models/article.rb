@@ -2,7 +2,7 @@ class Article < ApplicationRecord
 	include AASM
 
 	belongs_to :user
-	has_many :comments
+	has_many :comments, :dependent => :destroy
 
 	has_many :has_categories, :dependent => :destroy
 	has_many :categories, through: :has_categories
