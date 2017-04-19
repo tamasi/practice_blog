@@ -7,7 +7,7 @@ class Article < ApplicationRecord
 	has_many :has_categories, :dependent => :destroy
 	has_many :categories, through: :has_categories
 
-	has_many :read_later
+	has_many :read_later, :dependent => :destroy
 	has_many :profiles, through: :read_later 
 	
 	validates :title, presence: true, uniqueness: true
