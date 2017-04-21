@@ -1,0 +1,27 @@
+<% content_for :title do %>Contact<% end %> 
+
+<h3>Contactenos</h3>
+
+<%= form_for(@contact) do |f| %>
+  <div class="form-group">
+    <%= f.label :Nombre %>
+    <%= f.text_field :name, placeholder: "Ingrese su nombre", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "su@email.com", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Mensaje %>
+    <%= f.text_field :content, placeholder: "Ingrese aqui su mensaje", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+      <label for="number">Phone Number</label>
+      <input type="tel" placeholder="+44778217779" class="form-control" name="number">
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "Enviar", class: "btn btn-default" %>
+  </div>
+<% end %>
