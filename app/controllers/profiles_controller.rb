@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authorization_for_editors_and_admins, except: [:show, :index, :edit]
-  before_action :set_joinus, only: [:index, :show, :authors]
+  before_action :set_joinus, only: [:index, :show, :authors, :read_later]
 
   # GET /profiles
   # GET /profiles.json
@@ -32,6 +32,10 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
 
+  end
+
+  def read_later
+    @read_later = current_user.profile.read_later
   end
 
   # PATCH/PUT /profiles/1

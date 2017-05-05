@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:index, :show] do
     member do
       get 'authors'
+      get 'read_later'
     end
   end
   # resources :users, only: [:index] do

@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def mark_as_read_later
-		ReadLater.create(article_id: @article.id, profile_id: current_user.profile.id)
+		ReadLater.find_or_create_by(article_id: @article.id, profile_id: current_user.profile.id)
 		redirect_to @article
 	end
 
