@@ -3,19 +3,19 @@
 		<i class="fa fa-home"></i>
 	<% end -%>
   <%= link_to "Artículos", articles_path, class:"select-posts", id: "art", remote: true %>
-  <%= link_to "Categorias", categories_path, class:"select-categories", id:"carga", remote: true %>  
+  <%= link_to "Categorias", categories_path, class:"select-categories", id:"carga", remote: true %>
 </div>
 <div class="col-md-6 sub-nav align-links-nav-rigth">
-  <div class="col-md-8">
-    <%= form_tag(articles_search_path, :method => "get", class: "search-form", id: "search-form") do %>
-      <div class="form-group has-feedback">
-        <label for="search" class="sr-only">Search</label>
-        <%= text_field_tag :query, params[:query], placeholder: "Search", class: "form-control-1", name:"query" %>
-          <span class="glyphicon glyphicon-search form-control-feedback"></span>
-      </div>
-    <% end %>
+  <div class="col-md-9">
+  <%= form_tag(articles_search_path, :method => "get", class: "search-form", id: "search-form") do %>
+    <div class="form-group has-feedback">
+      <label for="search" class="sr-only">Search</label>
+      <%= text_field_tag :query, params[:query], placeholder: "Search", class: "form-control-1", name:"query" %>
+        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+    </div>
+  <% end %>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <% if !current_user.nil? %>
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.avatar.exists? ? image_tag(current_user.avatar, class: "user-topnav-icon dropdown-toggle") : image_tag(current_user.gravatar, class: "user-topnav-icon dropdown-toggle") %> <span class="caret"></span></a>
       <ul class="dropdown-menu pull-right">
@@ -29,5 +29,8 @@
     <% else %>
       <%= link_to "Login", new_user_session_path, class: "item-nav-rigth" %>
     <% end -%>
-  </div>
+  </div>  
 </div>
+<%# <div class="col-md-6 sub-nav align-links-nav-rigth">
+  
+</div> %>
