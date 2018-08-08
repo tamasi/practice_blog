@@ -918,6 +918,8 @@ aside.comments .comment.reply {
 aside.comments .comment header img {
   float: left;
   border-radius: 100px;
+  width: 76px;
+  height: 76px;
 }
 aside.comments .comment header .meta {
   margin-left: 100px;
