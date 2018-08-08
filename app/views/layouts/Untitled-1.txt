@@ -1,0 +1,74 @@
+<!-- if the user has javascript disabled they can still use the menu -->
+    <!-- se genera el div class="jPanelMenu-panel" -->
+      <main class="container left-container">
+        <div class="row">
+          <%= render "partials/sidebarnav" %>
+          <%= render "partials/sectionHome" %>
+          <section class="col-md-8 col-sm-12 col-md-offset-5 main-content">
+            <div class="row">
+              <%= render "partials/sub-nav" %>
+            </div>
+            <div id="remove">
+              <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %> alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <%= value %>
+                </div>
+              <% end %>
+              <%= yield %>
+            </div>
+            <footer class="split-footer">
+              <a href="#">About</a>
+              <i class="link-spacer"></i>
+              <a href="#">Ateneo de la Historia del Derecho</a>
+            </footer>
+          </section>
+        </div><!-- row -->
+      </main>
+    <!-- hasta aqui esta contenido en jPanelMenu-Panel -->
+    <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
+      <ul>
+          <li><i class="fa fa-home"></i><%= link_to "Home", root_path %></li>
+          <li><i class="fa fa-user"></i><a href="#">John Smith</a></li>
+          <li><i class="fa fa-anchor"></i><a href="#">About</a></li>
+          <li><i class="fa fa-star"></i><a href="#">Favorites</a></li>
+          <li><i class="fa fa-paper-plane"></i><a href="#">Contact</a></li>
+      </ul>
+      <hr>
+      <ul>
+          <li><i class="fa fa-file"></i><a href="#">Post Page</a></li>
+          <li><i class="fa fa-file"></i><a href="#">Post with Sidebar</a></li>
+
+          <li><i class="fa fa-home"></i><a href="#">Alternate Home</a></li>
+          <li><i class="fa fa-image"></i><a href="#">Category Page</a></li>
+      </ul>
+    </div>
+        <!-- end no script -->
+
+    <style id="jPanelMenu-style-master">body{width:100%}.jPanelMenu,body{overflow-x:hidden}#jPanelMenu-menu{display:block;position:fixed;top:0;left:0;height:100%;z-index:-1;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch}.jPanelMenu-panel{position:static;left:0;top:0;z-index:2;width:100%;min-height:100%;background:rgb(255, 255, 255)}</style>
+
+    <script>
+      $(function(){
+        $('#carga').click(function(){
+          $.ajax({
+              url: "/categories",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+
+      $(function(){
+        $('#art').click(function(){
+          $.ajax({
+              url: "/articles",
+              cache: false,
+              success: function(htmlResponse){
+                $("#remove").html(htmlResponse);
+              }
+          });
+        });
+      });
+    </script>

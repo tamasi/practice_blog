@@ -5,7 +5,7 @@ body {
 }
 
 /* line 15, ../sass/_type.sass */
-body,
+/*body,*/
 button,
 input,
 select,
@@ -975,7 +975,7 @@ ol li {
   /* line 23, ../sass/partials/_sidebar.sass */
   .sidebar .site-info {
     padding: 0 20px;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 40px;
   }
 }
@@ -1957,7 +1957,7 @@ form input[type=submit]:hover {
 /* line 42, ../sass/main.sass */
 html,
 body {
-  font-size: 62.5%;
+  /*font-size: 62.5%;*/
 }
 @media (min-width: 992px) {
   /* line 42, ../sass/main.sass */

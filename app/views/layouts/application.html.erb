@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html class="js svg jPanelMenu">
   <head>
-    <title>Iurisdictio</title>
+    <title>NHD</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900" rel="stylesheet">
+
+    <!-- Google fonts -->
+		<%# <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,900" rel="stylesheet"> %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CPT+Serif:400,400italic" rel="stylesheet" type="text/css">
 
     <!-- Google Analytics script -->
     <script>
@@ -22,81 +25,105 @@
   </head>
 
   <body data-menu-position="closed">
-    
-    <!-- if the user has javascript disabled they can still use the menu -->
-    <!-- se genera el div class="jPanelMenu-panel" -->
-      <main class="container left-container">
-        <div class="row">
-          <%= render "partials/sidebarnav" %>
-          <%= render "partials/sectionHome" %>
-          <section class="col-md-8 col-sm-12 col-md-offset-5 main-content">
-            <div class="row">
-              <%= render "partials/sub-nav" %>
-            </div>
-            <div id="remove">
-              <% flash.each do |key, value| %>
-                <div class="alert alert-<%= key %> alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <%= value %>
+    <header>
+        <div class="widewrapper masthead">
+            <div class="container">
+                <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/index.html" id="logo">
+                    Nueva Historia del Derecho 
+                    <span><p style="font-size: 11px;">Ateneo de Historia Critica del Derecho, Historia Social de la Justicia y Antropología Histórica.</p></span>
+                    <!--Use the following line instead if you want to use an image logo-->
+                    <!--<img src="img/tales-logo.png" alt="Tales Blog">-->
+                </a>
+
+                <div id="mobile-nav-toggle" class="pull-right">
+                    <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/index.html#" data-toggle="collapse" data-target=".tales-nav .navbar-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
                 </div>
-              <% end %>
-              <%= yield %>
+
+                <nav class="pull-right tales-nav">
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav nav-pills navbar-nav">
+                          
+                            <li class="dropdown active">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/index.html#">
+                                    Blog 
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/index.html">Blog</a></li>
+                                    <li><a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/blog-detail.html">Blog Detail</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/about.html">About</a>
+                            </li>
+                            <li>
+                                <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/credits.html">Credits</a>
+                            </li>                        
+                        </ul>
+                    </div>
+                </nav>        
+
             </div>
-            <footer class="split-footer">
-              <a href="#">About</a>
-              <i class="link-spacer"></i>
-              <a href="#">Ateneo de la Historia del Derecho</a>
-            </footer>
-          </section>
-        </div><!-- row -->
-      </main>
-    <!-- hasta aqui esta contenido en jPanelMenu-Panel -->
-    <div id="jPanelMenu-menu" style="width: 250px; z-index: -1; display: none;">
-      <ul>
-          <li><i class="fa fa-home"></i><%= link_to "Home", root_path %></li>
-          <li><i class="fa fa-user"></i><a href="#">John Smith</a></li>
-          <li><i class="fa fa-anchor"></i><a href="#">About</a></li>
-          <li><i class="fa fa-star"></i><a href="#">Favorites</a></li>
-          <li><i class="fa fa-paper-plane"></i><a href="#">Contact</a></li>
-      </ul>
-      <hr>
-      <ul>
-          <li><i class="fa fa-file"></i><a href="#">Post Page</a></li>
-          <li><i class="fa fa-file"></i><a href="#">Post with Sidebar</a></li>
+        </div>
 
-          <li><i class="fa fa-home"></i><a href="#">Alternate Home</a></li>
-          <li><i class="fa fa-image"></i><a href="#">Category Page</a></li>
-      </ul>
+        <div class="widewrapper subheader">
+            <div class="container">
+                <div class="tales-breadcrumb">
+                    <%= link_to "Home", root_path %>
+                    <%# <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/index.html#">Blog</a> %>
+                </div>
+
+                <div class="tales-searchbox">
+                    <form action="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/index.html#" method="get" accept-charset="utf-8">
+                        <button class="searchbutton" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <input class="searchfield" id="searchbox" type="text" placeholder="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="widewrapper main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 blog-main">
+                    <%= yield %>
+                </div>
+                <aside class="col-md-4 blog-aside">
+                </aside>
+            </div>
+        </div>
     </div>
-        <!-- end no script -->
+    <footer>
+      <div class="widewrapper footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-widget">
+                </div>
+                <div class="col-md-4 footer-widget">
+                </div>
+                <div class="col-md-4 footer-widget">
+                    <h3> <i class="fa fa-envelope"></i>Contactanos</h3>
 
-    <style id="jPanelMenu-style-master">body{width:100%}.jPanelMenu,body{overflow-x:hidden}#jPanelMenu-menu{display:block;position:fixed;top:0;left:0;height:100%;z-index:-1;overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch}.jPanelMenu-panel{position:static;left:0;top:0;z-index:2;width:100%;min-height:100%;background:rgb(255, 255, 255)}</style>
-
-    <script>
-      $(function(){
-        $('#carga').click(function(){
-          $.ajax({
-              url: "/categories",
-              cache: false,
-              success: function(htmlResponse){
-                $("#remove").html(htmlResponse);
-              }
-          });
-        });
-      });
-
-      $(function(){
-        $('#art').click(function(){
-          $.ajax({
-              url: "/articles",
-              cache: false,
-              success: function(htmlResponse){
-                $("#remove").html(htmlResponse);
-              }
-          });
-        });
-      });
-    </script>
+                    <span>I'm happy to hear from my readers. Thoughts, feedback, critique - all welcome! Drop me a line:</span>
+                    
+                    <span class="email">
+                        <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/index.html#">jimmy@notanactualemail.com</a>, PGP key 0x5AK0BEA1
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="widewrapper copyright">
+        <div class="container">
+            <!--Note: Feel free to remove or change this link as you please. A link to HackerThemes is not required by any means-->
+            Designed by <a href="#" rel="nofollow">NHD_Design</a>
+        </div>
+      </div>
+    </footer>
 
   </body>
 </html>

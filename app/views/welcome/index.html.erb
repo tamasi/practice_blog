@@ -1,32 +1,37 @@
-<%# <div class="jumbotron">
-  <h1>NUEVA HISTORIA DEL DERECHO</h1>
-  <p>Ateneo de Historia Critica del Derecho, Historia Social de la Justicia y Antropología Histórica.</p>
-</div> %>
-<section class="row">
-  <div class="col-sm-12">
-    <h2 class="favorites">Últimas Noticias</h2>
-  </div>
-
-  <% @notices.each do |notice| %>
-    <article class="post-favorite col-xs-12 col-sm-6 ">
-    	<div class="notice-preview col-xs-6 col-sm-4 ">
-          <%= link_to image_tag(notice.cover.url), root_path %>
-      </div>
-      <h2><%= link_to notice.title, notice %></h2>
-      <p><%= notice.body %> </p>
-    </article>
-  <% end -%>
-</section><!-- end fav posts -->
-
-<section class="row favorite-categories animated fadeIn">
-	<div class="col-sm-12">
-	  <h2 class="favorites">Ultimos Post</h2>
-	</div>
-
-	<% @articles.publicados.each do |article| %>
-		<article class="post-favorite col-xs-12 col-sm-6 ">
-	    <h2><%= link_to article.title, article %></h2>
-	    <p><%= article.subtitle %></p>
-    </article>
-	<% end -%>
-</section><!-- end latest articles section -->
+<% @articles.publicados.each_slice(2) do |article1, article2| %>
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <article class=" blog-teaser">
+                <header>
+                    <%# <%= article1.user.avatar.exists? ? image_tag(article1.user.avatar, class: "") : image_tag(article1.user.gravatar, class: "") %>
+                    <%# <img src="./Tales - Blog_files/cat.png" alt="A Cat"> %>
+                    <h3><%= link_to article1.title, article1 %></h3>
+                    <span class="meta"><%= article1.subtitle%></span>
+                    <hr>
+                </header>
+                <div class="body">
+                    <%= article1.body %>
+                </div>
+                <div class="clearfix">
+                    <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/blog-detail.html" class="btn btn-tales-one">Read more</a>
+                </div>
+            </article>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <article class="blog-teaser">
+                <header>
+                    <%# <%= image_tag(article2.cover.url) %>
+                    <h3><%= link_to article2.title, article2 %></h3>
+                    <span class="meta"><%= article2.subtitle %></span>
+                    <hr>
+                </header>
+                <div class="body">
+                    Bacon ipsum dolor sit amet esse duis pastrami anim, pancetta fatback capicola officia tenderloin. Meatloaf culpa ut, bacon sed sausage jerky cillum est ham ad laboris ham hock dolore. Venison ut enim, aliqua elit frankfurter et incididunt consequat culpa nostru aliqua elit pancetta. 
+                </div>
+                <div class="clearfix">
+                    <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/blog-detail.html" class="btn btn-tales-one">Read more</a>
+                </div>
+            </article>
+        </div>
+    </div>
+<% end %>

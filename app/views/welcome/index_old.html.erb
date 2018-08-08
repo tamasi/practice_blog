@@ -1,0 +1,32 @@
+<%# <div class="jumbotron">
+  <h1>NUEVA HISTORIA DEL DERECHO</h1>
+  <p>Ateneo de Historia Critica del Derecho, Historia Social de la Justicia y Antropología Histórica.</p>
+</div> %>
+<section class="row">
+  <div class="col-sm-12">
+    <h2 class="favorites">Últimas Noticias</h2>
+  </div>
+
+  <% @notices.each do |notice| %>
+    <article class="post-favorite col-xs-12 col-sm-6 ">
+    	<div class="notice-preview col-xs-6 col-sm-4 ">
+          <%= link_to image_tag(notice.cover.url), root_path %>
+      </div>
+      <h2><%= link_to notice.title, notice %></h2>
+      <p><%= notice.body %> </p>
+    </article>
+  <% end -%>
+</section><!-- end fav posts -->
+
+<section class="row favorite-categories animated fadeIn">
+	<div class="col-sm-12">
+	  <h2 class="favorites">Ultimos Post</h2>
+	</div>
+
+	<% @articles.publicados.each do |article| %>
+		<article class="post-favorite col-xs-12 col-sm-6 ">
+	    <h2><%= link_to article.title, article %></h2>
+	    <p><%= article.subtitle %></p>
+    </article>
+	<% end -%>
+</section><!-- end latest articles section -->

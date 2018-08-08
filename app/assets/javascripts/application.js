@@ -24,6 +24,8 @@
 //= require plugins/lists.min.js
 //= require bootstrap-sprockets
 //= require jquery.jpanelmenu.min.js
+//= require modernizr-custom.js
+//= require jquery-2.2.3.min.js
 //= require comments
 //= require main.js
 
