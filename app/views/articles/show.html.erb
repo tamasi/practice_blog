@@ -16,14 +16,70 @@
                 </div>
                 <div class="comments">
                     <i class="fa fa-comments"></i>
-                    <span class="data"><a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/blog-detail.html#comments"><%= @article.comments ? @article.comments.count : "0" %></a></span>
+                    <span class="data"><a href=""><%= @article.comments ? @article.comments.count : "0" %></a></span>
                 </div>                                
             </div>
         </div>
     </header>
     <div class="body">
+        <p> <%= @article.body %> </p>
         <div class="iframecontent">
-            <iframe src="https://docs.google.com/gview?url=https:<%= @article.artpdf.url %>&embedded=true" style="width:800px; height:900px;" frameborder="0"></iframe>
+            <iframe src="https://docs.google.com/gview?url=https:<%= @article.artpdf.url %>&embedded=true" style="width:700px; height:900px;" frameborder="0"></iframe>
         </div>
     </div>
 </article>
+
+<aside class="social-icons clearfix">
+    <a href="#" class="social-icon color-one">
+        <div class="inner-circle"></div>
+        <i class="fa fa-twitter"></i>
+    </a>
+
+    <a href="#" class="social-icon color-two">
+        <div class="inner-circle"></div>
+        <i class="fa fa-google-plus"></i>
+    </a>    
+
+    <a href="#" class="social-icon color-three">
+        <div class="inner-circle"></div>
+        <i class="fa fa-facebook"></i>
+    </a>
+</aside>
+
+<%# comments section %>
+
+<aside class="comments" id="comments">
+    <hr>
+
+    <h2><i class="fa fa-comments"></i> <%= @article.comments ? @article.comments.count : "0" %></h2>
+    <% @article.comments.each do |comment| %>
+        <article class="comment">
+            <header class="clearfix">
+                <%= comment.user.avatar.exists? ? image_tag(comment.user.avatar, class: "avatar") : image_tag(comment.user.gravatar, class: "avatar") %>
+                <%# <img src="./Tales - My Insightful Article_files/avatar.png" alt="A Smart Guy" class="avatar"> %>
+                <div class="meta">
+                    <h3><%= link_to comment.user.profile.full_name, root_path %> </h3>
+                    <span class="date">
+                            <%= comment.created_at.to_date %>
+                    </span>
+                    <span class="separator">
+                        -
+                    </span>
+                    
+                    <a href="http://demo.hackerthemes.com/tales/html-version/3.3.6-v3/blog-detail.html#create-comment" class="reply-link">Reply</a>                
+                </div>
+            </header>
+            <div class="body">
+                <%= comment.body %>
+            </div>
+        </article>
+    <% end %>
+</aside>
+
+<aside class="create-comment" id="create-comment">
+    <hr>    
+
+    <h2><i class="fa fa-heart"></i> Add Comment</h2>
+
+    <%= render "comments/form" %>
+</aside>

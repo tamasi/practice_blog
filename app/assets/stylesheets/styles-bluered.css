@@ -693,6 +693,7 @@ hr {
 }
 .blog-post header .lead-image .meta a {
   color: #eed1ce;
+  border-bottom: none;
 }
 @media (max-width: 979px) {
   .blog-post header .lead-image .meta {
