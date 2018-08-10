@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_notices
-    @notices = Notice.publicados
+    @notices = Notice.all
   end
 
 	def configure_permitted_parameters

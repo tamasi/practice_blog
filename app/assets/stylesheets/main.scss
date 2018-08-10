@@ -1604,7 +1604,7 @@ form label {
   margin: 15px 0 0;
 }
 /* line 9, ../sass/partials/_contact.sass */
-form input.form-control,
+/* form input.form-control,
 form textarea.form-control {
   border: solid 0px transparent;
   box-shadow: none;
@@ -1613,7 +1613,7 @@ form textarea.form-control {
   padding: 5px 0;
   background-color: #fff;
   resize: vertical;
-}
+} */
 /* line 43, ../sass/_mixins.sass */
 form input.form-control::-webkit-input-placeholder,
 form textarea.form-control::-webkit-input-placeholder {
@@ -1635,19 +1635,19 @@ form textarea.form-control:-ms-input-placeholder {
   color: #ccc;
 }
 /* line 21, ../sass/partials/_contact.sass */
-form input.form-control:focus,
+/* form input.form-control:focus,
 form textarea.form-control:focus {
   outline: none;
   border: none;
   border-bottom: solid 3px;
   box-shadow: none;
-}
+} */
 /* line 27, ../sass/partials/_contact.sass */
-form textarea.form-control {
+/* form textarea.form-control {
   height: 100px;
-}
+} */
 /* line 30, ../sass/partials/_contact.sass */
-form input[type=submit] {
+/* form input[type=submit] {
   margin: 30px 0;
   border: solid 2px #ccc;
   border-radius: 0;
@@ -1659,10 +1659,10 @@ form input[type=submit] {
   font-weight: 700;
 }
 /* line 40, ../sass/partials/_contact.sass */
-form input[type=submit]:hover {
+/* form input[type=submit]:hover {
   border: solid 2px #222;
   background-color: #fafafa;
-}
+} */
 
 /* line 1, ../sass/partials/_author.sass */
 .author-bio {

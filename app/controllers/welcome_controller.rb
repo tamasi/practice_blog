@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   layout "article_lay", only: [:about]
   def index
     @articles = Article.ultimos
+    @notices = Notice.all
   end
   def show
   	

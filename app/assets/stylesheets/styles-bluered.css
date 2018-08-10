@@ -430,6 +430,7 @@ hr {
 .tales-list li a:hover,
 .tales-list li a:focus {
   color: #e74c3c;
+  border-bottom: none;
 }
 .tales-list li:before {
   content: "";
