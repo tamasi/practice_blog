@@ -14,6 +14,14 @@
 //= require modernizr.custom.32229-2.8-respondjs-1-4-2.js
 //= require jquery
 //= require jquery_ujs
+
+//= require bootstrap-sprockets
+//= require jquery.jpanelmenu.min.js
+//= require modernizr-custom.js
+//= require jquery-2.2.3.min.js
+//= require comments
+//= require main.js
+
 //= require froala_editor.min.js
 //= require plugins/font_size.min.js
 //= require plugins/paragraph_format.min.js
@@ -22,12 +30,7 @@
 //= require plugins/fullscreen.min.js
 //= require plugins/link.min.js
 //= require plugins/lists.min.js
-//= require bootstrap-sprockets
-//= require jquery.jpanelmenu.min.js
-//= require modernizr-custom.js
-//= require jquery-2.2.3.min.js
-//= require comments
-//= require main.js
 
-
-$('selector').froalaEditor();
+$( document ).ready(function() {
+  $('selector').froalaEditor();
+});

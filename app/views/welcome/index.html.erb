@@ -10,7 +10,7 @@
                     <hr>
                 </header>
                 <div class="body">
-                    <%= article1.body %>
+                    <%= Sanitize.fragment(article1.body, Sanitize::Config::RELAXED).html_safe %>
                 </div>
                 <div class="clearfix">
                     <%# <a href="" class="btn btn-tales-one">Read more</a> %>
@@ -27,7 +27,7 @@
                     <hr>
                 </header>
                 <div class="body">
-                    Bacon ipsum dolor sit amet esse duis pastrami anim, pancetta fatback capicola officia tenderloin. Meatloaf culpa ut, bacon sed sausage jerky cillum est ham ad laboris ham hock dolore. Venison ut enim, aliqua elit frankfurter et incididunt consequat culpa nostru aliqua elit pancetta. 
+                    <%= Sanitize.fragment(article2.body, Sanitize::Config::RELAXED).html_safe %>
                 </div>
                 <div class="clearfix">
                     <%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
