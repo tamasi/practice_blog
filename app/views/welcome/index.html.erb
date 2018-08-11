@@ -10,7 +10,7 @@
                     <hr>
                 </header>
                 <div class="body">
-                    <%= Sanitize.fragment(article1.body, Sanitize::Config::RELAXED).html_safe %>
+                    <%= article1.body %>
                 </div>
                 <div class="clearfix">
                     <%# <a href="" class="btn btn-tales-one">Read more</a> %>
@@ -27,7 +27,7 @@
                     <hr>
                 </header>
                 <div class="body">
-                    <%= Sanitize.fragment(article2.body, Sanitize::Config::RELAXED).html_safe %>
+                    <%= article2.body %>
                 </div>
                 <div class="clearfix">
                     <%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
