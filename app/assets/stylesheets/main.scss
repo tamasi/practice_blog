@@ -842,8 +842,11 @@ ol li {
   width: 30px;
   height: 30px;
   padding: 0;
-  float: right;
+  /* float: right; */
   border-radius: 50%;
+  max-width: 100%;
+  margin-top: -7px;
+  margin-bottom: -7px;
 }
 
 /* line 1, ../sass/partials/_menu.sass */

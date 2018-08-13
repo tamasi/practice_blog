@@ -1075,6 +1075,11 @@ aside.comments .comment .body {
 .form-control:-ms-input-placeholder {
   color: #8aa4be;
 }
+
+.form-group .info-font-size {
+  font-size: 1em;
+}
+
 /* Buttons used in Tales */
 .btn-tales-one {
   color: #ffffff;

@@ -38,8 +38,8 @@ gem 'will_paginate'
 gem 'sanitize'
 
 # Gem installes by me instead of the proposed ones
-gem "wysiwyg-rails"
-gem 'font-awesome-sass'
+#gem "wysiwyg-rails"
+gem 'font-awesome-sass', '~> 5.2.0'
 
 #gem 'bootstrap', '~> 4.0.0.alpha6'
 #gem 'tether-rails'
