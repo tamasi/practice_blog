@@ -8,7 +8,12 @@
     
                 <div class="author">
                     <i class="fa fa-user"></i>
-                    <span class="data"><%= link_to @article.user.profile.full_name, @article.user.profile %></span>
+                    
+                    <% if @article.user.profile.full_name == ""%>
+                        <span class="data"> <%= link_to @article.user.email, @article.user.profile %> </>
+                    <% else %>
+                        <span class="data"><%= link_to @article.user.profile.full_name, @article.user.profile %></span>
+                    <% end %>
                 </div>
                 <div class="date">
                     <i class="fa fa-calendar"></i>
