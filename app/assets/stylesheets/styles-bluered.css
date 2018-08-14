@@ -982,6 +982,10 @@ aside.comments .comment .body {
 .about-bold {
   font-weight: bold;
 }
+.about-bold-name {
+  font-weight: bold;
+  font-size: 60px;
+}
 .about-italic {
   font-style: italic;
 }
@@ -1200,4 +1204,17 @@ fieldset[disabled] .btn-tales-two.active {
   font-size: 20px;
   line-height: normal;
   border-radius: 5px;
+}
+.btn-general {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
 }

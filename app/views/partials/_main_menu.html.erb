@@ -15,6 +15,11 @@
           <a href="">About</a>
       </li>
       <% if !current_user.nil? %>
+        <li>
+          <%= link_to new_article_path do %>
+            <i class="fas fa-file-contract"></i> Subí un Artículo
+          <% end %>
+        </li>
         <li class="dropdown active">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             <%= current_user.avatar.exists? ? image_tag(current_user.avatar, class: "user-topnav-icon") : image_tag(current_user.gravatar, class: "user-topnav-icon" ) %>

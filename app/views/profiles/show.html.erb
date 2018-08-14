@@ -1,35 +1,42 @@
 <div class="author-bio">
 	<% if @profile.user.avatar.exists? %>
-		<%= image_tag(@profile.user.avatar, class: "user-icon") %>
+		<%= image_tag(@profile.user.avatar, class: "about-portrait img-responsive") %>
 	<% else %>
-		<%= image_tag(@profile.user.gravatar, class: "user-icon") %>
+		<%= image_tag(@profile.user.gravatar, class: "about-portrait img-responsive") %>
 	<% end %>
 
-	<div class="author-bio__info">
-        <h1><%= @profile.full_name %></h1>
-        <p><%= @profile.about %></p>
-    </div>
+	<div class="about">
+    <h1 class="about-bold-name"><%= @profile.full_name %></h1>
+    <p class=""><%= @profile.about %></p>
+  </div>
+
+  <div class="about-button">
+    <%= link_to "#", class:"btn-general btn-xlarge btn-tales-one" do %>
+      <i class="far fa-comment-alt"></i> Contacta al autor
+    <% end %>
+  </div>
 </div>
-<p>
 
-</p><h2 class="favorites">Artículos de <%= @profile.full_name %></h2>
+<div>
+  <h2 class="favorites">Artículos de <%= @profile.full_name %></h2>
 
-<div class="posts-block animated fadeIn ">
-	<% @profile.user.articles.each do |article| %>
-    <article class="post author-page">
-      <div class="post-preview col-xs-10  no-gutter">
-        <h2><%= link_to article.title, article %></h2>
-        <%= truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:40) %>
-      </div>
-      <div class="col-sm-3 col-md-1 col-md-offset-1 hidden-sm hidden-xs no-gutter">
-        <p class="meta">
-            <span class="time"><i class="fa fa-bookmark"></i> <%= article.reading_time %></span>
-            <span class="min">minutes</span>
-        </p>
-      </div>
-    </article>
-	<% end %>
-  <div class="view-all-by-author">
-    <%= link_to "Todos los Articulos de #{@profile.full_name}", root_path %><i class="fa fa-chevron-right"></i>
+  <div class="posts-block animated fadeIn ">
+    <% @profile.user.articles.each do |article| %>
+      <article class="post author-page">
+        <div class="post-preview col-xs-10  no-gutter">
+          <h2><%= link_to article.title, article %></h2>
+          <p><%= truncate(Sanitize.fragment(article.body, Sanitize::Config::RELAXED), :omission => "" , :escape => false, length:100) %>...</p>
+        </div>
+        <div class="col-sm-3 col-md-1 col-md-offset-1 hidden-sm hidden-xs no-gutter">
+          <p class="meta">
+            <span class="min"><i class="fa fa-bookmark"></i> Lecturas:</span>
+            <span class="time"> <%= article.visits_count %></span>
+          </p>
+        </div>
+      </article>
+    <% end %>
+    <div class="view-all-by-author">
+      <%= link_to "Todos los Articulos de #{@profile.full_name}", root_path %><i class="fa fa-chevron-right"></i>
+    </div>
   </div>
 </div>
