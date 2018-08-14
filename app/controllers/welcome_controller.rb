@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   before_action :authenticate_admin!, only: [:dashboard]
   before_action :set_joinus, only: [:index, :dashboard, :about]
-  layout "article_lay", only: [:about]
+  
   def index
     @articles = Article.ultimos
     @notices = Notice.all
