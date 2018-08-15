@@ -10,7 +10,7 @@
                     <hr>
                 </header>
                 <div class="body">
-                    <%= article1.body %>
+                    <%= article1.body.truncate(500, separator:' ', omission:'...(continua)') %>
                 </div>
                 <div class="clearfix">
                     <%# <a href="" class="btn btn-tales-one">Read more</a> %>
@@ -27,7 +27,7 @@
                     <hr>
                 </header>
                 <div class="body">
-                    <%= article2.body %>
+                    <%= article2.body.truncate(500, separator:' ', omission:'...(continua)') %>
                 </div>
                 <div class="clearfix">
                     <%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
