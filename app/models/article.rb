@@ -28,6 +28,7 @@ class Article < ApplicationRecord
 
 	scope :publicados, ->{ where(state: "published") }
 	scope :ultimos, ->{ order("created_at DESC") }
+	scope :most_popular, ->{ order("visits_count") }
 
 	include PgSearch
 	pg_search_scope :search_articles, against: [:title, :body],

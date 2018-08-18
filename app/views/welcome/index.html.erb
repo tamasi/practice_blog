@@ -1,38 +1,56 @@
-<% @articles.publicados.each_slice(2) do |article1, article2| %>
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            <article class=" blog-teaser">
-                <header>
-                    <%# <%= article1.user.avatar.exists? ? image_tag(article1.user.avatar, class: "") : image_tag(article1.user.gravatar, class: "") %>
-                    <%# <img src="./Tales - Blog_files/cat.png" alt="A Cat"> %>
-                    <h3><%= link_to article1.title, article1 %></h3>
-                    <span class="meta"><%= article1.subtitle%></span>
-                    <hr>
-                </header>
-                <div class="body">
-                    <%= article1.body.truncate(500, separator:' ', omission:'...(continua)') %>
-                </div>
-                <div class="clearfix">
-                    <%# <a href="" class="btn btn-tales-one">Read more</a> %>
-                    <%= link_to "Leer mas...", article1, class: "btn btn-tales-one" %>
-                </div>
-            </article>
+<div class="col-md-8 blog-main">
+    <% @articles.publicados.each_slice(2) do |article1, article2| %>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <article class=" blog-teaser">
+                    <header>
+                        <%# <%= article1.user.avatar.exists? ? image_tag(article1.user.avatar, class: "") : image_tag(article1.user.gravatar, class: "") %>
+                        <%# <img src="./Tales - Blog_files/cat.png" alt="A Cat"> %>
+                        <h3><%= link_to article1.title, article1 %></h3>
+                        <span class="meta"><%= article1.subtitle%></span>
+                        <hr>
+                    </header>
+                    <div class="body">
+                        <%= article1.body.truncate(500, separator:' ', omission:'...(continua)') %>
+                    </div>
+                    <div class="clearfix">
+                        <%= link_to "Leer mas...", article1, class: "btn btn-tales-one" %>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <article class="blog-teaser">
+                    <header>
+                        <%# <%= image_tag(article2.cover.url) %>
+                        <h3><%= link_to article2.title, article2 %></h3>
+                        <span class="meta"><%= article2.subtitle %></span>
+                        <hr>
+                    </header>
+                    <div class="body">
+                        <%= article2.body.truncate(500, separator:' ', omission:'...(continua)') %>
+                    </div>
+                    <div class="clearfix">
+                        <%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
+                    </div>
+                </article>
+            </div>
         </div>
-        <div class="col-md-6 col-sm-6">
-            <article class="blog-teaser">
-                <header>
-                    <%# <%= image_tag(article2.cover.url) %>
-                    <h3><%= link_to article2.title, article2 %></h3>
-                    <span class="meta"><%= article2.subtitle %></span>
-                    <hr>
-                </header>
-                <div class="body">
-                    <%= article2.body.truncate(500, separator:' ', omission:'...(continua)') %>
-                </div>
-                <div class="clearfix">
-                    <%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
-                </div>
-            </article>
+    <% end %>
+</div>
+<aside class="col-md-4 blog-aside">
+    <div class="aside-widget">
+        <header>
+            <h3>Noticias</h3>
+        </header>
+        <div class="body">
+            <ul class="tales-list">
+            <% @notices.each do |notice| %>
+                <li>
+                <%= link_to notice.title, notice %></br>
+                <h6><%= notice.body %></h6>
+                </li>
+            <% end %>
+            </ul>
         </div>
     </div>
-<% end %>
+</aside>

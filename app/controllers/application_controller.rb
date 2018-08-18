@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
 
   before_action :set_categories
   before_action :set_notices
+  before_action :set_most_visited_articles
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_institution_for_profile, if: :devise_controller?
   before_action :set_joinus, if: :devise_controller?
-
 
 
   protected
@@ -30,6 +30,12 @@ class ApplicationController < ActionController::Base
   def set_notices
     @notices = Notice.all
   end
+
+  def set_most_visited_articles
+    @most_popular = Article.most_popular.limit(5) #By default SQL String limit 255 character 
+    #Ex:- :limit => 40
+  end
+  
 
 	def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update) do |user_params|

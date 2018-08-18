@@ -56,7 +56,6 @@
             <div class="container">
                 <div class="tales-breadcrumb">
                     <%= link_to "Home", root_path %>
-                    <%# <a href="#">Blog</a> %>
                 </div>
 
                 <div class="tales-searchbox">
@@ -73,26 +72,7 @@
     <div class="widewrapper main">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 blog-main">
-                    <%= yield %>
-                </div>
-                <aside class="col-md-4 blog-aside">
-                    <div class="aside-widget">
-                        <header>
-                            <h3>Noticias</h3>
-                        </header>
-                        <div class="body">
-                            <ul class="tales-list">
-                            <% @notices.each do |notice| %>
-                                <li>
-                                <%= link_to notice.title, notice %></br>
-                                <h6><%= notice.body %></h6>
-                                </li>
-                            <% end %>
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
+                <%= yield %>
             </div>
         </div>
     </div>
@@ -101,8 +81,36 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 footer-widget">
+                    <h3> <i class="fab fa-wpforms"></i>  Estadísticas</h3>
+
+                    <span>Muchas veces nosotros tambien perdemos la cantidad de artículo que tenemos aqui. Esto ayuda:</span>
+
+                    <div class="stats">
+                        <div class="line">
+                            <span class="counter"> <%= Article.count %> </span>
+                            <span class="caption">Artículos</span>
+                        </div>
+                        <div class="line">
+                            <span class="counter"> <%= Comment.count %> </span>
+                            <span class="caption">Comentarios</span>
+                        </div>
+                        <div class="line">
+                            <span class="counter"> <%= Profile.count %> </span>
+                            <span class="caption"> <%= if Profile.count > 1
+                                "Autores"
+                            else
+                                "Autor"
+                            end %> </span>
+                        </div>                    
+                    </div>
                 </div>
                 <div class="col-md-4 footer-widget">
+                    <h3> <i class="fas fa-trophy"></i> Salon de la Fama </h3>
+                    <ul class="tales-list">
+                        <% @most_popular.each do |article| %>
+                            <li> <%= link_to article.title, article %> </li>
+                        <% end %>
+                    </ul>
                 </div>
                 <div class="col-md-4 footer-widget">
                     <h3> <i class="fa fa-envelope"></i>Contactanos</h3>
