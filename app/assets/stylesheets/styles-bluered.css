@@ -72,6 +72,14 @@ hr {
 .masthead a:hover {
   border-bottom: none;
 }
+
+/* copete logo */
+.copete_logo p {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
 /* Widewrappers that span the whole width of the page */
 .widewrapper {
   background-color: #feffff;
@@ -453,6 +461,7 @@ hr {
 .footer .tales-list li a {
   color: #ecf0f1;
   padding-bottom: 5px;
+  border-bottom: none;
 }
 .footer .tales-list li:before {
   left: -21px;
@@ -488,6 +497,13 @@ hr {
   margin-left: 56px;
   display: block;
 }
+
+.footer-widget .stats .line .caption a {
+  color: #a4b6c8;
+  display: block;
+  border-bottom: none;
+}
+
 .footer-widget .email {
   display: block;
   margin-top: 10px;

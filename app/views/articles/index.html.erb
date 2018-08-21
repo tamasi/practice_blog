@@ -1,21 +1,59 @@
-<div class="home-page-posts animated fadeIn ">
-	<% @articles.each do |article| %>
-    <article class="post">
-	    <div class="post-preview col-xs-10  no-gutter">
-	      <h2><%= link_to article.title, article %></h2>
-	      <p><%= article.subtitle %></p>
-	      <p class="meta">
-	        <%= article.user.profile.full_name %> in <%= article.categories.first ? article.categories.first.name : "Sin Categorias"  %> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 23 minute read
-	      </p>
-	    </div>
-	    <div class="col-xs-2  no-gutter">
-	    	<% if article.user.avatar.exists? %>
-	    		<%= image_tag(article.user.avatar, class: "user-icon") %>
-	    	<% else %>
-	    		<%= image_tag(article.user.gravatar, class: "user-icon") %>
-	    	<% end %>
-	    </div>
-		</article>
+<div class="col-md-8 blog-main">
+	<% @articles.each_slice(2) do |article1, article2| %>
+			<div class="row">
+					<div class="col-md-6 col-sm-6">
+							<article class=" blog-teaser">
+									<header>
+											<%# <%= article1.user.avatar.exists? ? image_tag(article1.user.avatar, class: "") : image_tag(article1.user.gravatar, class: "") %>
+											<%# <img src="./Tales - Blog_files/cat.png" alt="A Cat"> %>
+											<h3><%= link_to article1.title, article1 %></h3>
+											<span class="meta"><%= article1.subtitle%></span>
+											<hr>
+									</header>
+									<div class="body">
+											<%= article1.body.truncate(500, separator:' ', omission:'...(continua)') %>
+									</div>
+									<div class="clearfix">
+											<%= link_to "Leer mas...", article1, class: "btn btn-tales-one" %>
+									</div>
+							</article>
+					</div>
+					<div class="col-md-6 col-sm-6">
+							<article class="blog-teaser">
+									<header>
+											<%# <%= image_tag(article2.cover.url) %>
+											<h3><%= link_to article2.title, article2 %></h3>
+											<span class="meta"><%= article2.subtitle %></span>
+											<hr>
+									</header>
+									<div class="body">
+											<%= article2.body.truncate(500, separator:' ', omission:'...(continua)') %>
+									</div>
+									<div class="clearfix">
+											<%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
+									</div>
+							</article>
+					</div>
+			</div>
 	<% end %>
+	<%= will_paginate @articles %>
 </div>
+<aside class="col-md-4 blog-aside">
+    <div class="aside-widget">
+        <header>
+            <h3>Noticias</h3>
+        </header>
+        <div class="body">
+            <ul class="tales-list">
+            <% @notices.each do |notice| %>
+                <li>
+                <%= link_to notice.title, notice %></br>
+                <h6><%= notice.body %></h6>
+                </li>
+            <% end %>
+            </ul>
+        </div>
+    </div>
+</aside>
+
 <%= will_paginate @articles %>

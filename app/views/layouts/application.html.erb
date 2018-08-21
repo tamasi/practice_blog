@@ -55,7 +55,10 @@
         <div class="widewrapper subheader">
             <div class="container">
                 <div class="tales-breadcrumb">
-                    <%= link_to "Home", root_path %>
+                    <%= link_to root_path do %>
+                        <i class="fas fa-home"></i>
+                    <% end %>
+                    
                 </div>
 
                 <div class="tales-searchbox">
@@ -88,7 +91,7 @@
                     <div class="stats">
                         <div class="line">
                             <span class="counter"> <%= Article.count %> </span>
-                            <span class="caption">Artículos</span>
+                            <span class="caption"><%= link_to "Articulos", articles_path %></span>
                         </div>
                         <div class="line">
                             <span class="counter"> <%= Comment.count %> </span>
@@ -97,9 +100,9 @@
                         <div class="line">
                             <span class="counter"> <%= Profile.count %> </span>
                             <span class="caption"> <%= if Profile.count > 1
-                                "Autores"
+                                link_to "Autores", profiles_path
                             else
-                                "Autor"
+                                link_to "Autor", profiles_path
                             end %> </span>
                         </div>                    
                     </div>
@@ -108,7 +111,7 @@
                     <h3> <i class="fas fa-trophy"></i> Salon de la Fama </h3>
                     <ul class="tales-list">
                         <% @most_popular.each do |article| %>
-                            <li> <%= link_to article.title, article %> </li>
+                            <li> <%= link_to article.title.truncate(50, separator:' ', omission:'...(leer)'), article %> </li>
                         <% end %>
                     </ul>
                 </div>
