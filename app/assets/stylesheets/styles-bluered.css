@@ -743,6 +743,11 @@ hr {
   float: left;
   margin-right: 10px;
 }
+
+.blog-teaser .autor {
+  text-align: right;
+  font-size: 12px;
+}
 .blog-post .body {
   margin-top: 20px;
 }

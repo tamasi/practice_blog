@@ -7,9 +7,9 @@ class Profile < ApplicationRecord
 	has_many :articles, through: :read_later
 	
 	#custom setter for institutions
-	# def institutions(value)
+	#def institutions(value)
 	# 	@institutions = value
-	# end
+	#end
 
 	def full_name
 		full_name = "#{first_name} #{last_name}"

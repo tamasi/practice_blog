@@ -7,12 +7,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_institution_for_profile, if: :devise_controller?
   before_action :set_joinus, if: :devise_controller?
+  before_action :save_institutions, if: :devise_controller?
 
 
   protected
   def set_joinus
     @enable_joinus = true
   end
+
   def set_institution_for_profile
     @institutions = Institution.all
   end
