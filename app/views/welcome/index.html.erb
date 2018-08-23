@@ -10,9 +10,9 @@
                         <span class="meta"><%= article1.subtitle%></span>
                         <br>
                         <% if article1.user.profile.full_name? %>
-                            <p class="meta autor"><%= article1.user.profile.full_name %> / <%= article1.user.profile.institutions ? article1.user.profile.institutions.first.name : "" %></p>
+                            <p class="meta autor"><%= article1.user.profile.full_name %> / <%= article1.user.profile.institutions.presence ? article1.user.profile.institutions.first.name : "" %></p>
                         <% else %>
-                            <p class="autor"><%= article1.user.email %> / <%= article1.user.profile.institutions ? article1.user.profile.institutions.first.name : "" %></p>
+                            <p class="autor"><%= article1.user.email %> / <%= article1.user.profile.institutions.presence ? article1.user.profile.institutions.first.name : "" %></p>
                         <% end %>
                         <hr>
                     </header>
