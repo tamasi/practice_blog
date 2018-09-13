@@ -21,22 +21,25 @@
                 </article>
             </div>
             <div class="col-md-6 col-sm-6">
-                <article class="blog-teaser">
-                    <header>
-                        <%# <%= image_tag(article2.cover.url) %>
-                        <h3><%= link_to article2.title, article2 %></h3>
-                        <span class="meta"><%= article2.subtitle %></span>
-                        <br>
-                        <p class="meta autor"><%= article2.user.profile.full_name? ? article2.user.profile.full_name : article2.user.email %> / <%= article2.user.profile.institutions.presence ? article2.user.profile.institutions.first.name : "" %> </p>
-                        <hr>
-                    </header>
-                    <div class="body">
-                        <%= article2.body.truncate(500, separator:' ', omission:'...(continua)') %>
-                    </div>
-                    <div class="clearfix">
-                        <%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
-                    </div>
-                </article>
+                
+                <% if @article2 %>               
+                    <article class="blog-teaser">
+                        <header>
+                            <%# <%= image_tag(article2.cover.url) %>
+                            <h3><%= link_to article2.title, article2 %></h3>
+                            <span class="meta"><%= article2.subtitle %></span>
+                            <br>
+                            <p class="meta autor"><%= article2.user.profile.full_name? ? article2.user.profile.full_name : article2.user.email %> / <%= article2.user.profile.institutions.presence ? article2.user.profile.institutions.first.name : "" %> </p>
+                            <hr>
+                        </header>
+                        <div class="body">
+                            <%= article2.body.truncate(500, separator:' ', omission:'...(continua)') %>
+                        </div>
+                        <div class="clearfix">
+                            <%= link_to "Leer mas...", article2, class: "btn btn-tales-one" %>
+                        </div>
+                    </article>
+                <% end %>
             </div>
         </div>
     <% end %>
