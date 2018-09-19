@@ -1,4 +1,11 @@
 <div class="col-md-8 blog-main">
+    <% @articles.publicados.each_with_index do |article, index| %>
+    
+    <% end %>
+    
+</div>
+
+<div class="col-md-8 blog-main">
     <% @articles.publicados.each_slice(2) do |article1, article2| %>
         <div class="row">
             <div class="col-md-6 col-sm-6">
@@ -22,7 +29,7 @@
             </div>
             <div class="col-md-6 col-sm-6">
                 
-                <% if @article2 %>               
+                <% if article2 != nil %>               
                     <article class="blog-teaser">
                         <header>
                             <%# <%= image_tag(article2.cover.url) %>
